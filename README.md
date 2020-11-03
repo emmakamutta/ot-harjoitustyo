@@ -1,3 +1,7 @@
-# Tämä on otsikko
-Tässä on tavallista tekstiä, joka sisältää **lihavoituja** ja *kursivoituja* osuuksia.
- _Tässä osiossa on **molempia**_
+# Ohjelmistotekniikka
+## Tehtävät
+### Viikko 1
+
+[komentorivi.txt](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt) 
+
+[gitlog.txt](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
