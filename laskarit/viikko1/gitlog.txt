@@ -1,5 +1,5 @@
 commit 356fce0684e763f686a3e6c1617e6eb282998ce3
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 15:59:34 2020 +0200
 
     poistettiin ja muokkailtiin
@@ -9,7 +9,7 @@ Date:   Tue Nov 3 15:59:34 2020 +0200
  2 files changed, 0 insertions(+), 0 deletions(-)
 
 commit ef2deb5064a4f1783e98ca3d6cc230379b4fed4d
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 15:50:16 2020 +0200
 
     lisätty kansio tiedostoja
@@ -20,7 +20,7 @@ Date:   Tue Nov 3 15:50:16 2020 +0200
  3 files changed, 0 insertions(+), 0 deletions(-)
 
 commit 216095ccdd04d9351782802f1c9eb787f7d09b15
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 15:23:45 2020 +0200
 
     muokattiin ekaa ja kolmatta
@@ -30,7 +30,7 @@ Date:   Tue Nov 3 15:23:45 2020 +0200
  2 files changed, 13 insertions(+), 15 deletions(-)
 
 commit 3be4ef55118c5817f835837767343df362d779e3
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 15:19:03 2020 +0200
 
     uudelleennimettiin tiedosto.txt
@@ -39,7 +39,7 @@ Date:   Tue Nov 3 15:19:03 2020 +0200
  1 file changed, 0 insertions(+), 0 deletions(-)
 
 commit 538b21211e6060f229b467c3d7a95d9aa3f2ce46
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 15:15:10 2020 +0200
 
     postettu toinen.txt
@@ -48,7 +48,7 @@ Date:   Tue Nov 3 15:15:10 2020 +0200
  1 file changed, 1 deletion(-)
 
 commit 19ad9cd0b8271e9fe5a976ecff42211613051926
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 15:10:44 2020 +0200
 
     muokattu taas tedosto.txt
@@ -57,7 +57,7 @@ Date:   Tue Nov 3 15:10:44 2020 +0200
  1 file changed, 6 insertions(+), 7 deletions(-)
 
 commit 04779f9acd6f07a45d66a53ee309d628f329799d
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 15:07:28 2020 +0200
 
     muokattu tedosto.txt
@@ -66,7 +66,7 @@ Date:   Tue Nov 3 15:07:28 2020 +0200
  1 file changed, 19 insertions(+), 1 deletion(-)
 
 commit c7dd7f5b3a170d81592a0cf331ecc9221271cb4a
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 13:41:46 2020 +0200
 
     hakemisto stuff lisätty
@@ -75,7 +75,7 @@ Date:   Tue Nov 3 13:41:46 2020 +0200
  1 file changed, 5 insertions(+)
 
 commit cd16ff87e2c2787e883e6572e8ae9f46f4c720aa
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 13:38:54 2020 +0200
 
     muokattiin tokaa ja kolmatta
@@ -85,7 +85,7 @@ Date:   Tue Nov 3 13:38:54 2020 +0200
  2 files changed, 2 insertions(+)
 
 commit 07ca6a1e567b93e46c980e85013306f6a7c5d1a5
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 13:36:13 2020 +0200
 
     kolmas.txt lisätty
@@ -94,7 +94,7 @@ Date:   Tue Nov 3 13:36:13 2020 +0200
  1 file changed, 0 insertions(+), 0 deletions(-)
 
 commit 108295388e96920eb18d6eb5001c3066e1fe4b12
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 13:14:14 2020 +0200
 
     muutos ja lisäys
@@ -104,7 +104,7 @@ Date:   Tue Nov 3 13:14:14 2020 +0200
  2 files changed, 1 insertion(+)
 
 commit 776339d0f344cd70daabeb35dbb52eb7dcaaedef
-Author: Emma Kamutta <emma.kamutta@helsinki.fi>
+Author: Emma Kamutta <sähköposti>
 Date:   Tue Nov 3 13:10:45 2020 +0200
 
     tiedosto.txt luotu
