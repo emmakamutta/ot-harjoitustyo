@@ -6,4 +6,5 @@
 
 * [gitlog.txt](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-------------
+## Harjoitustyö
+### Dokumentaatio
