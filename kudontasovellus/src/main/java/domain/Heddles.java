@@ -6,14 +6,15 @@ package domain;
  */
 public class Heddles {
     
-    int[][] grid;
+    Grid grid;
 
     public Heddles(int shafts, int columns) {
-        this.grid = new int[shafts][columns];
+        this.grid = new Grid(shafts, columns);
     }
 
-    public void setGrid(int[][] grid) {
-        this.grid = grid;
+    @Override
+    public String toString() {
+        return "Heddles{" + grid + '}';
     }
     
     

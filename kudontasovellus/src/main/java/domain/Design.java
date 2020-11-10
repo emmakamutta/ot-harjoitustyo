@@ -2,7 +2,7 @@
 package domain;
 
 /**
- * Kokonaista kudontamallia kuvaava luokka
+ * Kudontamallia kuvaava luokka
  */
 public class Design {
     int shafts;           //niisivarsien lkm;
@@ -10,7 +10,7 @@ public class Design {
     int length;
     Heddles heddles;
     Treadles treadles;
-    int[][] grid;
+    Grid grid;
 
     public Design() {
         this.shafts = 4;
@@ -18,6 +18,7 @@ public class Design {
         this.length = 10;      //HUOM!!! nyt 10 - onko tämä lopullinen oletusarvo?
         this.heddles = new Heddles(shafts, length);
         this.treadles = new Treadles(shafts, treadleamount);
+        this.grid = new Grid(length, length);
     }
 
     public Design(int shafts, int treadleamount) {
@@ -25,8 +26,20 @@ public class Design {
         this.treadleamount = treadleamount;
         this.heddles = new Heddles(shafts, length);
         this.treadles = new Treadles(shafts, treadleamount);
+        this.grid = new Grid(length, length);
     }
     
+    public void weave(int treadle) {
+        if (treadle >= treadleamount || treadle < 0) {
+            // tällöin polkusta ei olemassa -> virheilmoitus?
+        }  
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Design{" + "shafts=" + shafts + ", treadleamount=" + treadleamount + ", length=" + length + ", heddles=" + heddles + ", treadles=" + treadles + ", grid=" + grid + '}';
+    }
     
     
     
