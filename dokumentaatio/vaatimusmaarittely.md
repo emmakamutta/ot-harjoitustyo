@@ -9,6 +9,7 @@ Sitten käyttäjä voi painaa polkusia kuvaavia nappeja haluamassaan järjestyks
 Myös polkusten poljentajärjestys muistetaan, ja näytetään mallikuvan vieressä. 
 
 ## Käyttöliittymäluonnos
+![Käyttisluonnos kuva](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kayttisluonnos.png)
 
 ## Käyttäjät
 Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
