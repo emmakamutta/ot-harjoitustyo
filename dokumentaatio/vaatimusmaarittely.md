@@ -39,6 +39,7 @@ Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
 - Käyttäjä voi lopuksi tallentaa juuri luoman mallinsa 
 
 - Esimerkkikuva kudontamallista
+
    ![esimerkkikuva](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/esimerkki.png)
    
    Tässä siis suurin ruudukko on mallikuva kudontajäljestä, sen oikealla puolella on polkemisjärjestys, alapuolella vasemmanpuoleinen ruudukko on niisintä ja oikeanpuoleinen polkusten sidonta. Mallikuva on esitetty pienempänä ruudukkona, kuin sovellukseen on tarkoitus tulla.
