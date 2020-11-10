@@ -22,10 +22,10 @@ Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
     - oletusarvona molemmille on 4
   - Käyttäjä määrittelee polkusten sidonnan
     - esitetään oletusarvoisesti 4x4 ruudukkona. 
-    - Jos polkusten ja niisivarsien määrä on mukautettu, niin ruudukko on muotoa axb, missä a on polkusten lukumäärä ja b on niisivarsien lukumäärä
+    - Jos polkusten ja niisivarsien määrä on mukautettu, niin ruudukko on muotoa axb, missä a on niisivarsien lukumäärä ja b on polkusten lukumäärä
   - Käyttäjä määrittelee niisinnän
-    - esitetään oletusarvoisesti 40x4 ruudukkona
-    - jos mukautettu, niin 40xb, missä b jälleen niisivarsien määrä
+    - esitetään oletusarvoisesti 4x20 ruudukkona
+    - jos mukautettu, niin ax20, missä a jälleen niisivarsien määrä
     - niisinnässä yksi sarake kuvaa yhtä loimilankaa, siis jokaisessa sarakkeessa voi olla valittuna vain yksi rivi, muuten kangaspuut eivät toimi.
  
 - Käyttäjä voi myös valita jonkin jo aiemmin luodun mallin
