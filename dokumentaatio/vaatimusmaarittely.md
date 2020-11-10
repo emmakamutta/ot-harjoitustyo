@@ -4,7 +4,7 @@
 Sovelluksen avulla käyttäjä voi suunnitella erilaisia kudontamalleja ja simuloida kudontaa kangaspuilla suunnitelemalla sidoksellaan. 
 Malleja voi myös tallentaa ja aikaisempia malleja tarkastella, mahdollisesti levylle tai tietokantaan. Joitan perussidosten malleja voisi olla jo valmiiksi muistissa. 
 Sovellus simuloi oletuksellisesti kangaspuita, joissa on neljä niisivartta ja neljät polkuset. 
-Malleja suunnitellaan määrittelemällä ensin polkusten sidonta sitä kuvaavaan 4x4 ruudukkoon. Lisäksi määritellään niisintä sitä kuvaavaan 40x4 ruudukkoon.
+Malleja suunnitellaan määrittelemällä ensin polkusten sidonta sitä kuvaavaan ruudukkoon. Lisäksi määritellään niisintä omaan ruudukkoonsa.
 Sitten käyttäjä voi painaa polkusia kuvaavia nappeja haluamassaan järjestyksessä, jolloin annettuun ruudukkoon tulee mallikuva siitä, millaista pintaa kutoessa tulisi. 
 Myös polkusten poljentajärjestys näytetään mallikuvan vieressä. Halutessaan polkusten ja niisivarsien määrää voi muuttaa.
 
@@ -17,14 +17,26 @@ Tämän lisäksi käyttöjärjestelmässä voisi olla valikko, josta löytyy jo 
 Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
 
 ## Toiminnallisuus
-### Polkusten sidonnan määrittely
-- 
+- Käyttäjä voi luoda uuden mallin, johon liittyy myös seuraavat asiat
+  - Käyttäjä määrittelee käytettävien polkusten ja niisivarsien määrän
+    - oletusarvona molemmille on 4
+  - Käyttäjä määrittelee polkusten sidonnan
+    - esitetään oletusarvoisesti 4x4 ruudukkona. 
+    - Jos polkusten ja niisivarsien määrä on mukautettu, niin ruudukko on muotoa axb, missä a on polkusten lukumäärä ja b on niisivarsien lukumäärä
+  - Käyttäjä määrittelee niisinnän
+    - esitetään oletusarvoisesti 40x4 ruudukkona
+    - jos mukautettu, niin 40xb, missä b jälleen niisivarsien määrä
+    - niisinnässä yksi sarake kuvaa yhtä loimilankaa, siis jokaisessa sarakkeessa voi olla valittuna vain yksi rivi, muuten kangaspuut eivät toimi.
+ 
+- Käyttäjä voi myös valita jonkin jo aiemmin luodun mallin
+  - siis sidonta ja niisintä ovat jo määritelty
+  
+- Edellä mainittujen suunnitelujen jälkeen käyttäjä voi simuloida kutomista painamalla polkusia haluamassaan järjestyksessä
+ - Polkusta painamalla mallikuvaan tulee näkyville uusi rivi. Tämä vastaa kutomisessa yhtä kuteen heittoa.
+   - Mallikuvan rivillä musta ruutu esittää sitä, että kankaan pinnassa näkyy kude, valkoinen ruutu taas esittää loimilankaa. 
+ - Polkemisjärjestys tulee näkyviin mallikuvan viereen omaan ruudukkoonsa
 
-### Niisinnän määrittely
-
-### Kudonnan simulointi
-
-### Mallin tallentaminen
+- Käyttäjä voi lopuksi tallentaa juuri luoman mallinsa 
 
 
 ## Jatkokehitysideoita
@@ -32,4 +44,4 @@ Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
 - Loimen ja kuteen värin voi muuttaa niin, että raidalliset loimet ovat mahdollisia ja on mahdollista kutoa raitoja. 
 - Kokonaisia lisätoiminnallisuuksia kudonnan suunnittelun avuksi: 
   - Erilaisia laskureita, kuten esimerkiksi kuteen menekin laskuri, loimen menekin laskuri, kutistumislaskuri yms. 
-  - Omille malleille voi antaa enemmän määreitä, kuten nimen, suunnitellun pituuden tai tiheyden yms.
+  - Omille malleille voi antaa enemmän määreitä, kuten nimen, suunnitellun pituuden, leveyden ja tiheyden yms.
