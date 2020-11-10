@@ -16,7 +16,10 @@ Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
 
 ## Toiminnallisuus
 
+
 ## Jatkokehitysideoita
 - Käyttäjä saa itse määritellä montako niisivartta ja polkusta simuloiduissa kangaspuissa on.
 - Loimen ja kuteen värin voi muuttaa.
+- Mallit tallenentaankin tietokantaan, ja valmiita malleja voi halutessaan tarkastelun lisäksi muokata.
 - Kokonainen lisätoiminnallisuus kudonnan suunnittelun avuksi: kuteen menekin laskuri. 
+
