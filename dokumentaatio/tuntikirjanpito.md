@@ -5,4 +5,5 @@
 |6.11.  | 1    | Harjoitustyön suunnittelu|
 |10.11. | 3,5  | Vaatimusmäärittelyn laatiminen|
 |       | 2    | Sovelluslogiikan alustava koodaus |
-| yht.   | 6,5  | | 
+|17.11. | 4    | Sovelluslogiikan koodausta|
+| yht.   | 10,5  | | 
