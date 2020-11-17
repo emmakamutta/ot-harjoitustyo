@@ -20,6 +20,7 @@ import static org.junit.Assert.*;
 public class UniversalGridTest {
 
     public UniversalGridTest() {
+        //Ota selvää miksi tämän täytyy olla tässä
     }
 
 
@@ -41,14 +42,11 @@ public class UniversalGridTest {
                       {0,0,0,0},
                       {0,0,0,0},
                       {0,1,0,0}};
-        Heddles heddles = new Heddles(ex);
+        UniversalGrid grid = new UniversalGrid(ex);
         
-        int[] row = heddles.getRow(3);
-        String s = "";
-        for (int i = 0; i < row.length; i++) {
-            s += row[i];
-        }
-        assertEquals("0100", s);
+        int[] row = {0,1,0,0};
+        
+        Assert.assertArrayEquals(row, grid.getRow(3));
     }
 
 }

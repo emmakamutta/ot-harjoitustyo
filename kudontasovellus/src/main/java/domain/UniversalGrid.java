@@ -2,7 +2,7 @@ package domain;
 
 /**
  *
- * tämä luokka on ihan tavallinen ruudukko
+ * tämä luokka on tavallinen ruudukko
  */
 public class UniversalGrid implements Grid {
 
@@ -19,8 +19,6 @@ public class UniversalGrid implements Grid {
         this.grid = grid;
     }
     
-    
-
     public UniversalGrid(int length, int width) {
         this.length = length;
         this.width = width;

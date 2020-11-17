@@ -2,48 +2,48 @@
 package domain;
 
 /**
- * Kudontamallia kuvaava luokka
+ * Kangaspuita kuvaava luokka
  */
-public class Design {
+public class Loom {
     int shafts;           //niisivarsien lkm;
-    int treadleamount;    //polkusten lkm;
+    int treadleAmount;    //polkusten lkm;
     int length;
     Grid heddles;
     Grid treadles;
-    Grid grid;
+    Grid fabric;
 
-    public Design() {
+    public Loom() {
         this.shafts = 4;
-        this.treadleamount = 4;
+        this.treadleAmount = 4;
         this.length = 10;      //HUOM!!! nyt 10 - onko tämä lopullinen oletusarvo?
-        this.heddles = new UniversalGrid(shafts, length);
-        this.treadles = new UniversalGrid(shafts, treadleamount);
-        this.grid = new UniversalGrid(length, length);
+        this.heddles = new Heddles(shafts, length);
+        this.treadles = new UniversalGrid(shafts, treadleAmount);
+        this.fabric = new UniversalGrid(length, length);
     }
 
-    public Design(int shafts, int treadleamount) {
+    public Loom(int shafts, int treadleamount) {
         this.shafts = shafts;
-        this.treadleamount = treadleamount;
+        this.treadleAmount = treadleamount;
+        this.length = 10; 
         this.heddles = new UniversalGrid(shafts, length);
         this.treadles = new UniversalGrid(shafts, treadleamount);
-        this.grid = new UniversalGrid(length, length);
+        this.fabric = new UniversalGrid(length, length);
     }
 
-    public Design(Grid heddles, Grid treadles) {
+    public Loom(Heddles heddles, Grid treadles) {
         this.heddles = heddles;
         this.treadles = treadles;
         this.shafts = heddles.getColumn(0).length;
         this.length = heddles.getRow(0).length;
-        this.treadleamount = treadles.getRow(0).length;
-        this.grid = this.grid = new UniversalGrid(length, length);
+        this.treadleAmount = treadles.getRow(0).length;
+        this.fabric = this.fabric = new UniversalGrid(length, length);
     }
     
     
     
     public int[] weave(int treadle) {
-        if (treadle >= treadleamount || treadle < 0) {
-            return null;
-            // tällöin polkusta ei olemassa -> virheilmoitus?
+        if (treadle >= treadleAmount || treadle < 0) {
+            throw new IllegalArgumentException("Polkusta ei ole olemassa");
         }  
         int[] bounded = treadles.getColumn(treadle);
         int[] weavedRow = new int[length];
@@ -64,7 +64,7 @@ public class Design {
 
     @Override
     public String toString() {
-        return "Design{" + "shafts=" + shafts + ", treadleamount=" + treadleamount + ", length=" + length + ", heddles=" + heddles + ", treadles=" + treadles + ", grid=" + grid + '}';
+        return "Design{" + "shafts=" + shafts + ", treadleamount=" + treadleAmount + ", length=" + length + ", heddles=" + heddles + ", treadles=" + treadles + ", grid=" + fabric + '}';
     }
     
     

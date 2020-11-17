@@ -70,4 +70,13 @@ public class HeddlesTest {
         int[] col = {0,0,0,1};
         Assert.assertArrayEquals(col, heddles.getColumn(1));
     }
+    
+    @Test
+    public void constructorByDimensionsWorks() {
+        Heddles heddles = new Heddles(2,7);
+        
+        int[][] correct = new int[2][7];
+        
+        Assert.assertArrayEquals(correct, heddles.grid);
+    }
 }
