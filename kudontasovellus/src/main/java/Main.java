@@ -31,17 +31,19 @@ public class Main {
 //        System.out.println(s);
         
         System.out.println("----------");
-        int[][] ex = {{0,0,1,1},
-                      {0,0,0,0},
-                      {0,0,0,0},
-                      {0,1,0,0}};
-        Heddles hed = new Heddles(ex);
+
         
-        int[] row3 = hed.getRow(3);
-        String s = "";
-        for (int i = 0; i < row3.length; i++) {
-            s += row3[i];
-        }
-        System.out.println(s);
+        int[][] ex = {{0,0,0,1},
+                      {0,0,1,0},
+                      {1,0,0,0},
+                      {0,1,0,0}};
+        Heddles heddles = new Heddles(ex);
+        
+//        int[] row3 = hed.getRow(3);
+//        String s = "";
+//        for (int i = 0; i < row3.length; i++) {
+//            s += row3[i];
+//        }
+//        System.out.println(s);
     }
 }

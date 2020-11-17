@@ -10,6 +10,17 @@ public class UniversalGrid implements Grid {
     int width;
     int[][] grid;
 
+    public UniversalGrid() {
+    }
+
+    public UniversalGrid(int length, int width, int[][] grid) {
+        this.length = length;
+        this.width = width;
+        this.grid = grid;
+    }
+    
+    
+
     public UniversalGrid(int length, int width) {
         this.length = length;
         this.width = width;
@@ -40,7 +51,7 @@ public class UniversalGrid implements Grid {
 
     @Override
     public int[] getColumn(int columnNmbr) {
-        if (columnNmbr >= width) {
+        if (columnNmbr > width) {
             return null;
         }
 

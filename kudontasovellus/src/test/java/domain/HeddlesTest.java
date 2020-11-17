@@ -3,6 +3,7 @@
 import domain.Heddles;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -45,5 +46,28 @@ public class HeddlesTest {
                       {0,0,1,0},
                       {0,1,0,0}};
         Heddles heddles = new Heddles(ex);
+    }
+    
+    @Test
+    public void constructorWorksWithArrayInput() {
+        int[][] ex = {{0,0,0,1},
+                      {0,0,1,0},
+                      {1,0,0,0},
+                      {0,1,0,0}};
+        Heddles heddles = new Heddles(ex);
+        
+        Assert.assertArrayEquals(ex, heddles.grid);
+    }
+    
+    @Test
+    public void getColumnReturnsCorrectColumn() {
+        int[][] ex = {{0,0,0,1},
+                      {0,0,1,0},
+                      {1,0,0,0},
+                      {0,1,0,0}};
+        Heddles heddles = new Heddles(ex);
+        
+        int[] col = {0,0,0,1};
+        Assert.assertArrayEquals(col, heddles.getColumn(1));
     }
 }
