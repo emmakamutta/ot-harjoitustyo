@@ -6,18 +6,13 @@ package emmakamutta.domain;
  */
 public class UniversalGrid implements Grid {
 
-    int length;
-    int width;
-    int[][] grid;
+    public int length;
+    public int width;
+    public int[][] grid;
 
     public UniversalGrid() {
     }
 
-    public UniversalGrid(int length, int width, int[][] grid) {
-        this.length = length;
-        this.width = width;
-        this.grid = grid;
-    }
     
     public UniversalGrid(int length, int width) {
         this.length = length;
@@ -49,10 +44,10 @@ public class UniversalGrid implements Grid {
 
     @Override
     public int[] getColumn(int columnNmbr) {
-        if (columnNmbr > width) {
-            return null;
-        }
 
+        if (columnNmbr > width || columnNmbr < 0) {
+            throw new IllegalArgumentException("Column doesn't exist");
+        }
         int[] column = new int[length];
 
         for (int i = 0; i < length; i++) {

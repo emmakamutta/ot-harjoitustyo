@@ -55,6 +55,45 @@ public class UniversalGridTest {
         assertEquals("\n011\n101\n",grid.toString());
     }
     
+    @Test
+    public void constructorWithGivenGridWorks() {
+        int[][] ex = {{0,1,1}, 
+                     {1,0,1}};
+        
+        UniversalGrid grid = new UniversalGrid(ex);
+        
+        boolean ok = true;
+        if (grid.grid != ex || grid.length != ex.length || grid.width !=ex[0].length ) {
+            ok = false;
+        }
+        assertTrue(ok);
+    }
+    
+    @Test
+    public void constructorWithGivenWidthAndLengthWorks() {
+        UniversalGrid grid = new UniversalGrid(7,4);
+        Assert.assertArrayEquals(new int[7][4], grid.grid);
+    }
    
+    @Test(expected = IllegalArgumentException.class)
+    public void getColumnWithNegativeNmbrDoesntWork() {
+        int[][] ex = {{0,0,1,1},
+                      {0,0,0,0},
+                      {0,0,0,0},
+                      {0,1,0,0}};
+        UniversalGrid grid = new UniversalGrid(ex);
+        
+        grid.getColumn(-8);
+    }
 
+     @Test(expected = IllegalArgumentException.class)
+    public void getColumnWithTooBigNmbrDoesntWork() {
+        int[][] ex = {{0,0,1,1},
+                      {0,0,0,0},
+                      {0,0,0,0},
+                      {0,1,0,0}};
+        UniversalGrid grid = new UniversalGrid(ex);
+        
+        grid.getColumn(50);
+    }
 }
