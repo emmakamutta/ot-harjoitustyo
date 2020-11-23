@@ -1,5 +1,5 @@
 
-package domain;
+package emmakamutta.domain;
 
 /**
  * Kangaspuita kuvaava luokka

@@ -1,4 +1,4 @@
-package domain;
+package emmakamutta.domain;
 
 /**
  * Tämä luokka kuvaa kangaspuiden niisintää

@@ -1,5 +1,5 @@
 
-package domain;
+package emmakamutta.domain;
 
 /**
  *Tämä luokka kuvaa polkusten sidontaa

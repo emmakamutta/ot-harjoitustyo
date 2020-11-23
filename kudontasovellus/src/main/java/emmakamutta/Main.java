@@ -1,5 +1,10 @@
+package emmakamutta;
 
-import domain.*;
+
+import emmakamutta.domain.UniversalGrid;
+import emmakamutta.domain.Loom;
+import emmakamutta.domain.Heddles;
+import emmakamutta.domain.Grid;
 
 
 

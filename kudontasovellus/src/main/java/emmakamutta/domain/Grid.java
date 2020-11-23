@@ -1,5 +1,5 @@
 
-package domain;
+package emmakamutta.domain;
 
 /**
  * ruudukko

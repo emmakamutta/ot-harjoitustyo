@@ -1,6 +1,6 @@
 
 
-import domain.Heddles;
+import emmakamutta.domain.Heddles;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
