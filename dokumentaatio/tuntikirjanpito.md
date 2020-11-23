@@ -6,4 +6,5 @@
 |10.11. | 3,5  | Vaatimusmäärittelyn laatiminen|
 |       | 2    | Sovelluslogiikan alustava koodaus |
 |17.11. | 4    | Sovelluslogiikan koodausta|
-| yht.   | 10,5  | | 
+|       | 2,5  | -,,-                      |
+| yht.   | 13  | | 
