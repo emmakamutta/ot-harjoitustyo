@@ -44,7 +44,7 @@ public class Heddles extends UniversalGrid {
         return false;
     }
     
-        @Override
+    @Override
     public int[] getColumn(int columnNmbr) {
 
         int[] column = new int[grid[0].length];

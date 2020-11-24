@@ -49,12 +49,12 @@ public class Loom {
         int[] weavedRow = new int[length];
         
         for (int i = 0; i < shafts; i++) {
-            if (bounded[i]== 0) {
+            if (bounded[i] == 0) {
                 continue;
             }
             int[] relevant = heddles.getRow(i);
             for (int j = 0; j < length; j++) {
-                if (relevant[j]==1) {
+                if (relevant[j] == 1) {
                     weavedRow[j] = 1;
                 }
             }
