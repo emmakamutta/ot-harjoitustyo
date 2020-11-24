@@ -1,6 +1,6 @@
-#Arkkitehtuuri
+# Arkkitehtuuri
 
-##Pakkausrakenne
+## Pakkausrakenne
 
 ![pakkauskuva](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/pakkauskaavio.png)
 
