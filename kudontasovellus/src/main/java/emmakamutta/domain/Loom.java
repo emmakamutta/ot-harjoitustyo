@@ -14,6 +14,7 @@ public class Loom {
     Grid treadles;
     Fabric fabric;
     HashMap<Integer, int[]> weaveTreadles;
+    Deque<Integer> treadOrder;
 
     public Loom() {
         this.shafts = 4;
@@ -23,6 +24,8 @@ public class Loom {
         this.treadles = new UniversalGrid(shafts, treadleAmount);
         this.fabric = new Fabric(length, length);
         this.weaveTreadles = new HashMap<>();
+        this.treadOrder = new ArrayDeque<>();
+        
     }
 
     public Loom(int shafts, int treadleamount) {
@@ -33,6 +36,7 @@ public class Loom {
         this.treadles = new UniversalGrid(shafts, treadleamount);
         this.fabric = new Fabric(length, length);
         this.weaveTreadles = new HashMap<>();
+        this.treadOrder = new ArrayDeque<>();
     }
 
     public Loom(Heddles heddles, Grid treadles) {
@@ -43,6 +47,7 @@ public class Loom {
         this.treadleAmount = treadles.getRow(0).length;
         this.fabric = new Fabric(length, length);
         this.weaveTreadles = new HashMap<>();
+        this.treadOrder = new ArrayDeque<>();
     }
 
     public void weave(int treadle) {
@@ -54,6 +59,7 @@ public class Loom {
         }
         int[] row = weaveTreadles.get(treadle);
         fabric.weaveRow(row);
+        treadOrder.add(treadle);
     }
 
     public int[] getWeavedRow(int treadle) {
