@@ -32,9 +32,9 @@ Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
   - siis sidonta ja niisintä ovat jo määritelty
   
 - Edellä mainittujen suunnitelujen jälkeen käyttäjä voi simuloida kutomista painamalla polkusia haluamassaan järjestyksessä (simuloiminen tehty sovelluslogiikan osalta)
- - Polkusta painamalla mallikuvaan tulee näkyville uusi rivi. Tämä vastaa kutomisessa yhtä kuteen heittoa.
-   - Mallikuvan rivillä musta ruutu esittää sitä, että kankaan pinnassa näkyy kude, valkoinen ruutu taas esittää loimilankaa. 
- - Polkemisjärjestys tulee näkyviin mallikuvan viereen omaan ruudukkoonsa
+  - Polkusta painamalla mallikuvaan tulee näkyville uusi rivi. Tämä vastaa kutomisessa yhtä kuteen heittoa.
+    - Mallikuvan rivillä musta ruutu esittää sitä, että kankaan pinnassa näkyy kude, valkoinen ruutu taas esittää loimilankaa. 
+  - Polkemisjärjestys tulee näkyviin mallikuvan viereen omaan ruudukkoonsa
 
 - Käyttäjä voi lopuksi tallentaa juuri luoman mallinsa 
 
