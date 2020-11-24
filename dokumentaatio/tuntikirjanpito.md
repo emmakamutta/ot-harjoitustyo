@@ -9,5 +9,5 @@
 |       | 2,5  | -,,-                      |
 |23.11. | 1,5  |Testauksen parantelua    |
 |24.11. | 1    | Checkstylen käyttöönotto yms. |
-|       | 1,5  | Sovelluslogiikan koodausta|
-| yht.  | 17   | | 
+|       | 2    | Sovelluslogiikan koodausta|
+| yht.  | 17,5 | | 
