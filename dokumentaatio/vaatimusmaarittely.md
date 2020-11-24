@@ -17,7 +17,7 @@ Tämän lisäksi käyttöjärjestelmässä voisi olla valikko, josta löytyy jo 
 Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
 
 ## Toiminnallisuus
-- Käyttäjä voi luoda uuden mallin, johon liittyy myös seuraavat asiat
+- Käyttäjä voi luoda uuden mallin, johon liittyy myös seuraavat asiat  (tehty sovelluslogiikan osalta)
   - Käyttäjä määrittelee käytettävien polkusten ja niisivarsien määrän
     - oletusarvona molemmille on 4
   - Käyttäjä määrittelee polkusten sidonnan
@@ -31,7 +31,7 @@ Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
 - Käyttäjä voi myös valita jonkin jo aiemmin luodun mallin
   - siis sidonta ja niisintä ovat jo määritelty
   
-- Edellä mainittujen suunnitelujen jälkeen käyttäjä voi simuloida kutomista painamalla polkusia haluamassaan järjestyksessä
+- Edellä mainittujen suunnitelujen jälkeen käyttäjä voi simuloida kutomista painamalla polkusia haluamassaan järjestyksessä (simuloiminen tehty sovelluslogiikan osalta)
  - Polkusta painamalla mallikuvaan tulee näkyville uusi rivi. Tämä vastaa kutomisessa yhtä kuteen heittoa.
    - Mallikuvan rivillä musta ruutu esittää sitä, että kankaan pinnassa näkyy kude, valkoinen ruutu taas esittää loimilankaa. 
  - Polkemisjärjestys tulee näkyviin mallikuvan viereen omaan ruudukkoonsa
