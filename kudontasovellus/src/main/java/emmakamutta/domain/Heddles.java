@@ -5,14 +5,8 @@ package emmakamutta.domain;
  */
 public class Heddles extends UniversalGrid {
 
-    int length;
-    int width;
-    public int[][] grid;
-
     public Heddles(int shafts, int columns) {
-        this.length = shafts;
-        this.width = columns;
-        this.grid = new int[shafts][columns];
+        super(shafts, columns);
     }
 
     public Heddles(int[][] grid) {
