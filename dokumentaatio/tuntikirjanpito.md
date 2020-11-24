@@ -7,4 +7,6 @@
 |       | 2    | Sovelluslogiikan alustava koodaus |
 |17.11. | 4    | Sovelluslogiikan koodausta|
 |       | 2,5  | -,,-                      |
-| yht.   | 13  | | 
+|23.11. | 1,5  |Testauksen parantelua    |
+|24.11. | 1    | Checkstylen käyttöönotto yms. |
+| yht.   | 15,5  | | 
