@@ -10,4 +10,5 @@
 |23.11. | 1,5  |Testauksen parantelua    |
 |24.11. | 1    | Checkstylen käyttöönotto yms. |
 |       | 2    | Sovelluslogiikan koodausta|
-| yht.  | 17,5 | | 
+|27.11. | 1    | JavaFX:ään tutustumista |
+| yht.  | 18,5 | | 
