@@ -13,7 +13,7 @@ public class Loom {
     public Grid heddles;
     public Grid treadles;
     public Fabric fabric;
-    HashMap<Integer, int[]> weaveTreadles;
+    public HashMap<Integer, int[]> weaveTreadles;
     public Deque<Integer> treadOrder;
 
     public Loom() {
