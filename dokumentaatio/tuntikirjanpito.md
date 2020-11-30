@@ -11,4 +11,5 @@
 |24.11. | 1    | Checkstylen käyttöönotto yms. |
 |       | 2    | Sovelluslogiikan koodausta|
 |27.11. | 1    | JavaFX:ään tutustumista |
-| yht.  | 18,5 | | 
+|30.11. | 3    | JavaFX ihmettelyä ja ohjelmointia |
+| yht.  | 21,5 | | 
