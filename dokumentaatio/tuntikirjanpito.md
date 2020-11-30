@@ -12,4 +12,5 @@
 |       | 2    | Sovelluslogiikan koodausta|
 |27.11. | 1    | JavaFX:ään tutustumista |
 |30.11. | 3    | JavaFX ihmettelyä ja ohjelmointia |
-| yht.  | 21,5 | | 
+|       | 1,5  | Testauksen parantelua |
+| yht.  | 23   | | 
