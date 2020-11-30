@@ -1,6 +1,8 @@
 
 package emmakamutta.ui;
 
+import emmakamutta.domain.Loom;
+import java.util.HashMap;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,24 +18,68 @@ import javafx.stage.Stage;
  */
 public class Ui extends Application{
 
+    private static final int SQUARE_SIZE = 40; 
+    
     public Ui(){
     }
     
-    private Pane createNewDefaultLoom() {
+    private Pane makeTreadedPane(Loom loom) {
+        Pane treadedPane = new Pane();
+        treadedPane.setPrefSize(loom.fabricWidth*SQUARE_SIZE, loom.treadleAmount*SQUARE_SIZE);
         
-        
-        return null;
+        return treadedPane;
     }
     
-    private Scene createDefaultScene() {
-        //Luodaan näkymä uudelle kudontamallille oletuskangaspuilla
+    private Pane makeFabricPane(Loom loom) {
+        Pane fabricPane = new Pane();
+        fabricPane.setPrefSize(loom.fabricWidth*SQUARE_SIZE, loom.fabricWidth*SQUARE_SIZE);
+        
+        return fabricPane;
+    }
+    
+    private Pane makeHeddlesPane(Loom loom) {
+        Pane heddlesPane = new Pane();
+        heddlesPane.setPrefSize(loom.shafts*SQUARE_SIZE, loom.fabricWidth*SQUARE_SIZE);
+        
+        return heddlesPane;
+    }
+    
+    private Pane makeTreadlesPane(Loom loom) {
+        Pane treadlesPane = new Pane();
+        
+        treadlesPane.setPrefSize(loom.shafts * SQUARE_SIZE, loom.treadleAmount * SQUARE_SIZE);
+        
+        return treadlesPane;
+    }
+    
+    private HashMap<String, Pane> createLoomComponents(Loom loom) {
+        HashMap<String, Pane> components = new HashMap<>();
+        
+        components.put("Treadles", makeTreadlesPane(loom));
+        components.put("Heddles", makeHeddlesPane(loom));
+        components.put("Fabric", makeFabricPane(loom));
+        components.put("Treaded", makeTreadedPane(loom));
+        
+        return components;
+    }
+    
+    private Scene createWeaveScene(Loom loom) {
+        //Luodaan näkymä uudelle kudontamallille
         GridPane weaveLayout = new GridPane();
-        weaveLayout.add(new Label("Näkymä vaihtui"), 1, 1);
+        
         weaveLayout.setPrefSize(300, 180);
         weaveLayout.setAlignment(Pos.CENTER);
         weaveLayout.setVgap(10);
         weaveLayout.setHgap(10);
         weaveLayout.setPadding(new Insets(20, 20, 20, 20));
+        
+        HashMap<String,Pane> components = createLoomComponents(loom);
+        weaveLayout.add(components.get("Fabric"), 1, 1);
+        weaveLayout.add(components.get("Treaded"), 1, 2);
+        weaveLayout.add(components.get("Heddles"), 2, 1);
+        weaveLayout.add(components.get("Treadles"), 2, 2);
+        
+        weaveLayout.add(new Label("Päästiin tänne"), 0, 0);
         
         Scene defaultScene = new Scene(weaveLayout);
         
@@ -78,8 +124,9 @@ public class Ui extends Application{
         
         
         //Lisätään toiminnallisuudet tervetulonäkymän napeille
-        createNew.setOnAction( (event) ->{
-            window.setScene(createDefaultScene());
+        createNew.setOnAction((event) ->{
+            Loom loom = new Loom();
+            window.setScene(createWeaveScene(loom));
         });
         
         createCustom.setOnAction( (event) ->{

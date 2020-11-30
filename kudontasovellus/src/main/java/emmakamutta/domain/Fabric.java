@@ -14,8 +14,11 @@ public class Fabric extends UniversalGrid {
     }
 
     public void weaveRow(int[] row) {
-        this.grid[weavedRows] = row;
-        weavedRows++;
+        if (weavedRows < this.length) {
+            this.grid[weavedRows] = row;
+            weavedRows++;
+        }
     }
+    
 
 }
