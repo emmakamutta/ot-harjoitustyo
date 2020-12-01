@@ -19,7 +19,7 @@ public class Loom {
     public Loom() {
         this.shafts = 4;
         this.treadleAmount = 4;
-        this.fabricWidth = 10;      //HUOM!!! nyt 10 - onko tämä lopullinen oletusarvo?
+        this.fabricWidth = 20;      //HUOM!!! nyt 10 - onko tämä lopullinen oletusarvo?
         this.heddles = new Heddles(shafts, fabricWidth);
         this.treadles = new UniversalGrid(shafts, treadleAmount);
         this.fabric = new Fabric(fabricWidth, fabricWidth);
@@ -81,9 +81,14 @@ public class Loom {
         return weavedRow;
     }
 
-    @Override
-    public String toString() {
-        return "Design{" + "shafts=" + shafts + ", treadleamount=" + treadleAmount + ", length=" + fabricWidth + ", heddles=" + heddles + ", treadles=" + treadles + ", grid=" + fabric + '}';
+    public void setHeddles(Grid heddles) {
+        this.heddles = heddles;
     }
+
+    public void setTreadles(Grid treadles) {
+        this.treadles = treadles;
+    }
+
+    
 
 }
