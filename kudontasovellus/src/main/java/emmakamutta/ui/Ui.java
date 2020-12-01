@@ -1,6 +1,8 @@
 package emmakamutta.ui;
 
+import emmakamutta.domain.Grid;
 import emmakamutta.domain.Loom;
+import emmakamutta.domain.UniversalGrid;
 import java.util.HashMap;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -22,145 +24,51 @@ public class Ui extends Application {
 
     private static final int SQUARE_SIZE = 30;
 
-    private boolean modifiableHeddles;
-    private boolean modifiableTreadles;
-
-    private int[][] userHeddles;
-    private int[][] userTreadles;
+    private Loom loom;
 
     public Ui() {
-        this.modifiableHeddles = true;
-        this.modifiableTreadles = true;
     }
 
-    private Pane makeTreadedPane(Loom loom) {
-        Pane treadedPane = new Pane();
-        treadedPane.setPrefSize(loom.fabricWidth * SQUARE_SIZE, loom.treadleAmount * SQUARE_SIZE);
-
-        return treadedPane;
-    }
-
-    private GridPane makeFabricPane(Loom loom) {
-        GridPane fabricPane = new GridPane();
-
-        for (int i = 0; i < loom.fabricWidth; i++) {
-            for (int j = 0; j < loom.fabricWidth; j++) {
-                Rectangle rec = new Rectangle(SQUARE_SIZE - 2, SQUARE_SIZE - 2);
-                rec.setStroke(Color.LIGHTGRAY);
-                rec.setFill(Color.WHITE);
-
-                fabricPane.add(rec, i, j);
-            }
-        }
-
-        return fabricPane;
-    }
-
-    private void changeHeddles(int x, int y, int[][] grid, int value) {
-        grid[x][y] = value;
-    }
-
-    private GridPane makeHeddlesPane(Loom loom) {
-        this.userHeddles = new int[loom.shafts][loom.fabricWidth];
-        GridPane heddlesPane = new GridPane();
-        heddlesPane.setPrefSize(loom.shafts * SQUARE_SIZE, loom.fabricWidth * SQUARE_SIZE);
-
-        for (int i = 0; i < loom.fabricWidth; i++) {
-            for (int j = 0; j < loom.shafts; j++) {
-                Rectangle rec = new Rectangle(SQUARE_SIZE - 2, SQUARE_SIZE - 2);
-                rec.setStroke(Color.LIGHTGRAY);
-                rec.setFill(Color.WHITE);
-
-                rec.setOnMouseClicked((event) -> {
-                    if (modifiableHeddles) {
-                        if (rec.getFill() == Color.BLACK) {
-                            rec.setFill(Color.WHITE);
-                        } else {
-                            rec.setFill(Color.BLACK);
-                        }
-                    }
-                });
-
-                heddlesPane.add(rec, i, j);
-            }
-        }
-
-        return heddlesPane;
-    }
-
-    private GridPane createTreadlesPane(Loom loom) {
-        GridPane treadlesPane = new GridPane();
-
-        for (int i = 0; i < loom.shafts; i++) {
-            for (int j = 0; j < loom.treadleAmount; j++) {
-                Rectangle rec = new Rectangle(SQUARE_SIZE - 2, SQUARE_SIZE - 2);
-                rec.setStroke(Color.LIGHTGRAY);
-                rec.setFill(Color.WHITE);
-
-                rec.setOnMouseClicked((event) -> {
-                    if (modifiableTreadles) {
-
-                        if (rec.getFill() == Color.BLACK) {
-                            rec.setFill(Color.WHITE);
-                        } else {
-                            rec.setFill(Color.BLACK);
-                        }
-                    }
-
-                });
-
-                treadlesPane.add(rec, i, j);
-            }
-        }
-
-        return treadlesPane;
-    }
-
-    private HashMap<String, GridPane> createLoomComponents(Loom loom) {
-        HashMap<String, GridPane> components = new HashMap<>();
-
-        components.put("Treadles", createTreadlesPane(loom));
-        components.put("Heddles", makeHeddlesPane(loom));
-        components.put("Fabric", makeFabricPane(loom));
-//        components.put("Treaded", makeTreadedPane(loom));
-
-        return components;
-    }
-
-    private Scene createWeaveScene(Loom loom) {
+    private Scene createWeaveScene() {
         //Luodaan näkymä uudelle kudontamallille
         GridPane weaveLayout = new GridPane();
 
-        weaveLayout.setPrefSize(300, 180);
-        weaveLayout.setAlignment(Pos.CENTER);
-        weaveLayout.setVgap(10);
-        weaveLayout.setHgap(10);
+        weaveLayout.setPrefSize(800, 800);
+        weaveLayout.setAlignment(Pos.TOP_LEFT);
+        weaveLayout.setVgap(20);
+        weaveLayout.setHgap(20);
         weaveLayout.setPadding(new Insets(20, 20, 20, 20));
 
-        HashMap<String, GridPane> components = createLoomComponents(loom);
-        weaveLayout.add(components.get("Fabric"), 1, 1);
-//        weaveLayout.add(components.get("Treaded"), 1, 2);
-        weaveLayout.add(components.get("Heddles"), 1, 2);
-        weaveLayout.add(components.get("Treadles"), 2, 2);
-        
-        Button confirmTreadles = new Button("Polkusten sidonta valmis");
-        Button confirmHeddles = new Button("Niisintä valmis");
-        
+        TreadlesPane treadPane = new TreadlesPane(loom, SQUARE_SIZE);
+        FabricPane fabPane = new FabricPane(loom, SQUARE_SIZE);
+        HeddlesPane hedPane = new HeddlesPane(loom, SQUARE_SIZE);
+        TreadOrderPane toPane = new TreadOrderPane(loom, SQUARE_SIZE);
+
+        weaveLayout.add(fabPane, 1, 1);
+        weaveLayout.add(toPane, 2, 1);
+        weaveLayout.add(hedPane, 1, 2);
+        weaveLayout.add(treadPane, 2, 2);
+
+        Button confirmTreadles = new Button("Lukitse sidonta");
+        Button confirmHeddles = new Button("Lukitse niisintä");
+
         weaveLayout.add(confirmTreadles, 2, 3);
         weaveLayout.add(confirmHeddles, 1, 3);
-        
-        confirmTreadles.setOnAction((event) ->{
-            this.modifiableTreadles = false;
+
+        confirmTreadles.setOnAction((event) -> {
+            treadPane.setModifiable(false);
         });
-        
+
         confirmHeddles.setOnAction((event) -> {
-            this.modifiableHeddles = false;
+            hedPane.setModifiable(false);
+            //loom.setHeddles(new UniversalGrid(2,2));  //tänne sisälle metodi, joka muuntaa kuvan ruudukon olioksi Heddles
+            hedPane.changeRecColor(0,1);
         });
-        
+
         HBox treadleButtons = new HBox();
         for (int i = 0; i < loom.treadleAmount; i++) {
-            Button treadleButton = new Button("Poljin " + i);
-            
+            Button treadleButton = new Button("Poljin " + (i + 1));
+
             treadleButtons.getChildren().add(treadleButton);
         }
         weaveLayout.add(treadleButtons, 1, 4);
@@ -208,8 +116,8 @@ public class Ui extends Application {
 
         //Lisätään toiminnallisuudet tervetulonäkymän napeille
         createNew.setOnAction((event) -> {
-            Loom loom = new Loom();
-            window.setScene(createWeaveScene(loom));
+            this.loom = new Loom();
+            window.setScene(createWeaveScene());
         });
 
         createCustom.setOnAction((event) -> {
