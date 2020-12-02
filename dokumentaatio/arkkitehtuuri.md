@@ -10,4 +10,4 @@
 
 ## Päätoiminnallisuutta
 ### Polkusten sidonnan määrittely
-![sekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/Polkusten_varsmistussekvenssi.png)
+![sekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/polkusten_varmistussekvenssi.png)
