@@ -14,4 +14,6 @@
 |30.11. | 3    | JavaFX ihmettelyä ja ohjelmointia |
 |       | 1,5  | Testauksen parantelua |
 |1.12.  | 4,5  | Käyttöliittymän koodausta |
+|2.12.  | 2,5  | -,,- |
+|       | 0,5  | Sekvenssikaavio piirretty |
 | yht.  | 27,5   | | 
