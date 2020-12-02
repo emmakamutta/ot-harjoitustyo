@@ -81,7 +81,7 @@ public class Loom {
         return weavedRow;
     }
 
-    public void setHeddles(Grid heddles) {
+    public void setHeddles(Heddles heddles) {
         this.heddles = heddles;
     }
 

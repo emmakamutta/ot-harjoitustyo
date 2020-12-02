@@ -57,25 +57,31 @@ public class Ui extends Application {
 
         confirmTreadles.setOnAction((event) -> {
             treadPane.setModifiable(false);
+            loom.setTreadles(treadPane.convertToTreadles());
+            
         });
 
         confirmHeddles.setOnAction((event) -> {
             hedPane.setModifiable(false);
-            //loom.setHeddles(new UniversalGrid(2,2));  //tänne sisälle metodi, joka muuntaa kuvan ruudukon olioksi Heddles
-            hedPane.changeRecColor(0,1);
+            loom.setHeddles(hedPane.convertToHeddles()); 
+           
         });
 
         HBox treadleButtons = new HBox();
         for (int i = 0; i < loom.treadleAmount; i++) {
             Button treadleButton = new Button("Poljin " + (i + 1));
+            
+            treadleButton.setOnAction((event) -> {
+                
+            });
 
             treadleButtons.getChildren().add(treadleButton);
         }
         weaveLayout.add(treadleButtons, 1, 4);
 
-        Scene defaultScene = new Scene(weaveLayout);
+        Scene weaveScene = new Scene(weaveLayout);
 
-        return defaultScene;
+        return weaveScene;
     }
 
     private Scene createCustomScene() {
