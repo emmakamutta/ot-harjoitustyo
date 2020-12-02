@@ -19,5 +19,5 @@ Kudottua pintaa voi mallintaa kokeilemalla erilaisia polkemisjärjestyksiä ja s
 
 * testaus  `mvn test`
 * testikattavuusraportti `mvn jacoco:report` - löytyy avaamalla selaimella tiedosto *target/site/jacoco/index.html*
-* checkstyle -raportti `mvn jxr:jxr checkstyle:checkstyle` - löytyy avaamalla selaimella tiedosto *target/site/checkstyle.html*
+* checkstyle-raportti `mvn jxr:jxr checkstyle:checkstyle` - löytyy avaamalla selaimella tiedosto *target/site/checkstyle.html*
 * suoritettavan jarin generointi `mvn package` - suoritettava jar löytyy hakemiston *target* alta päätteellä *.jar*
