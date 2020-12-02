@@ -13,5 +13,5 @@
 |27.11. | 1    | JavaFX:ään tutustumista |
 |30.11. | 3    | JavaFX ihmettelyä ja ohjelmointia |
 |       | 1,5  | Testauksen parantelua |
-|1.12.  | 4,5  | Käyytöjärjestelmän koodausta |
+|1.12.  | 4,5  | Käyttöjärjestelmän koodausta |
 | yht.  | 27,5   | | 
