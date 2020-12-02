@@ -38,6 +38,10 @@ public class FabricPane extends GridPane{
         }
     }
     
+    public void vizualiseWeave(Loom loom, int treadle) {
+        
+    }
+    
     public void visualizeFabric(Fabric fabric) {
         
         for (int i = 0; i < length; i++) {

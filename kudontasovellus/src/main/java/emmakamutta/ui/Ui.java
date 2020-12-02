@@ -72,13 +72,17 @@ public class Ui extends Application {
             Button treadleButton = new Button("Poljin " + (i + 1));
             
             treadleButton.setOnAction((event) -> {
-                
+                //loom.weave(i);
             });
 
             treadleButtons.getChildren().add(treadleButton);
         }
         weaveLayout.add(treadleButtons, 1, 4);
+        
+        final Label info = new Label("Vinkki: klikkaa ruutuja");
 
+        weaveLayout.add(info, 2, 4);
+        
         Scene weaveScene = new Scene(weaveLayout);
 
         return weaveScene;
