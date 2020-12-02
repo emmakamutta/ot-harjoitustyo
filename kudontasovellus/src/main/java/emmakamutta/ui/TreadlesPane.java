@@ -14,14 +14,14 @@ import javafx.scene.shape.Rectangle;
  */
 public class TreadlesPane extends GridPane {
 
-    private int SQUARE_SIZE;
+    private int squareSize;
     private boolean modifiable;
     private HashMap<String, Rectangle> rectangles;
     private int height;
     private int width;
 
     public TreadlesPane(Loom loom, int squareSize) {
-        this.SQUARE_SIZE = squareSize;
+        this.squareSize = squareSize;
         this.modifiable = true;
         this.rectangles = new HashMap<>();
         this.width = loom.treadleAmount;
@@ -29,7 +29,7 @@ public class TreadlesPane extends GridPane {
 
         for (int i = 0; i < loom.shafts; i++) {
             for (int j = 0; j < loom.treadleAmount; j++) {
-                Rectangle rec = new Rectangle(SQUARE_SIZE - 2, SQUARE_SIZE - 2);
+                Rectangle rec = new Rectangle(this.squareSize - 2, this.squareSize - 2);
                 rec.setStroke(Color.LIGHTGRAY);
                 rec.setFill(Color.WHITE);
 
@@ -52,10 +52,10 @@ public class TreadlesPane extends GridPane {
             }
         }
     }
-    
+
     public Grid convertToTreadles() {
         int[][] grid = new int[height][width];
-        
+
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 String s = Integer.toString(j) + Integer.toString(i);
@@ -65,9 +65,9 @@ public class TreadlesPane extends GridPane {
 
             }
         }
-        
+
         UniversalGrid tre = new UniversalGrid(grid);
-        
+
         return tre;
     }
 

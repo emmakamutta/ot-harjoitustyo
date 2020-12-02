@@ -14,7 +14,7 @@ import javafx.scene.shape.Rectangle;
  */
 public class HeddlesPane extends GridPane {
 
-    private int SQUARE_SIZE;
+    private int squareSize;
     private int height;
     private int width;
 
@@ -22,7 +22,7 @@ public class HeddlesPane extends GridPane {
     private HashMap<String, Rectangle> rectangles;
 
     public HeddlesPane(Loom loom, int squareSize) {
-        this.SQUARE_SIZE = squareSize;
+        this.squareSize = squareSize;
         this.modifiable = true;
         this.rectangles = new HashMap<>();
         this.width = loom.fabricWidth;
@@ -30,7 +30,7 @@ public class HeddlesPane extends GridPane {
 
         for (int i = 0; i < loom.fabricWidth; i++) {
             for (int j = 0; j < loom.shafts; j++) {
-                Rectangle rec = new Rectangle(SQUARE_SIZE - 2, SQUARE_SIZE - 2);
+                Rectangle rec = new Rectangle(this.squareSize - 2, this.squareSize - 2);
                 rec.setStroke(Color.LIGHTGRAY);
                 rec.setFill(Color.WHITE);
 
