@@ -17,13 +17,13 @@ Tämän lisäksi käyttöjärjestelmässä voisi olla valikko, josta löytyy jo 
 Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
 
 ## Toiminnallisuus
-- Käyttäjä voi luoda uuden mallin, johon liittyy myös seuraavat asiat  (**tehty sovelluslogiikan osalta**)
+- Käyttäjä voi luoda uuden mallin, johon liittyy myös seuraavat asiat 
   - Käyttäjä määrittelee käytettävien polkusten ja niisivarsien määrän
-    - oletusarvona molemmille on 4
-  - Käyttäjä määrittelee polkusten sidonnan
+    - oletusarvona molemmille on 4 (**tehty**)
+  - Käyttäjä määrittelee polkusten sidonnan (**tehty**)
     - esitetään oletusarvoisesti 4x4 ruudukkona. 
     - Jos polkusten ja niisivarsien määrä on mukautettu, niin ruudukko on muotoa axb, missä a on niisivarsien lukumäärä ja b on polkusten lukumäärä
-  - Käyttäjä määrittelee niisinnän
+  - Käyttäjä määrittelee niisinnän (**tehty**)
     - esitetään oletusarvoisesti 4x20 ruudukkona
     - jos mukautettu, niin ax20, missä a jälleen niisivarsien määrä
     - niisinnässä yksi sarake kuvaa yhtä loimilankaa, siis jokaisessa sarakkeessa voi olla valittuna vain yksi rivi, muuten kangaspuut eivät toimi.
