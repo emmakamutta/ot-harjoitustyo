@@ -16,4 +16,5 @@
 |1.12.  | 4,5  | Käyttöliittymän koodausta |
 |2.12.  | 2,5  | -,,- |
 |       | 0,5  | Sekvenssikaavio piirretty |
+|       | 1    | Ensimmäisen releasen teko ja yleisiä hommia |
 | yht.  | 30,5   | | 
