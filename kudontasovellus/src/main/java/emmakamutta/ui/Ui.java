@@ -79,6 +79,7 @@ public class Ui extends Application {
                 this.loom.weave(buttonNmbr);
                 fabPane.visualizeFabric(this.loom.fabric);
                 toPane.visualize(buttonNmbr);
+                //System.out.println(loom.fabric.toString());
             });
 
             treadleButtons.getChildren().add(treadleButton);

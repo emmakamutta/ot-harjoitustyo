@@ -3,6 +3,7 @@ package emmakamutta.ui;
 import emmakamutta.domain.Fabric;
 import emmakamutta.domain.Loom;
 import java.util.HashMap;
+import java.util.TreeMap;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -16,7 +17,7 @@ public class FabricPane extends GridPane {
     private int squareSize;
     private int length;
 
-    private HashMap<String, Rectangle> rectangles;
+    public HashMap<String, Rectangle> rectangles;
 
     public FabricPane(Loom loom, int squareSize) {
         this.squareSize = squareSize;
@@ -29,14 +30,14 @@ public class FabricPane extends GridPane {
                 rec.setStroke(Color.LIGHTGRAY);
                 rec.setFill(Color.WHITE);
 
-                String key = Integer.toString(i) + Integer.toString(j);
+                String key = Integer.toString(i) + "," +Integer.toString(j);
+                
                 rectangles.put(key, rec);
 
                 add(rec, i, j);
             }
         }
     }
-
 
     public void visualizeFabric(Fabric fabric) {
 
@@ -50,7 +51,8 @@ public class FabricPane extends GridPane {
     }
 
     public void changeRecColor(int x, int y, Color color) {
-        String key = "" + x + y;
+        String key = Integer.toString(x) + "," +Integer.toString(y);
+        
 
         rectangles.get(key).setFill(color);
 
