@@ -37,16 +37,13 @@ public class FabricPane extends GridPane {
         }
     }
 
-    public void vizualiseWeave(Loom loom, int treadle) {
-
-    }
 
     public void visualizeFabric(Fabric fabric) {
 
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
                 if (fabric.grid[i][j] == 1) {
-                    changeRecColor(length - i, j, Color.BLACK);
+                    changeRecColor(j, i, Color.BLACK);
                 }
             }
         }

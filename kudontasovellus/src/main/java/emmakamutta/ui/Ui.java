@@ -69,10 +69,13 @@ public class Ui extends Application {
 
         HBox treadleButtons = new HBox();
         for (int i = 0; i < loom.treadleAmount; i++) {
-            Button treadleButton = new Button("Poljin " + (i + 1));
+            Button treadleButton = new Button("Poljin " + (i+1));
+            int buttonNmbr = Integer.parseInt(treadleButton.getText().substring(7))-1;
+            
             
             treadleButton.setOnAction((event) -> {
-                //loom.weave(i);
+                this.loom.weave(buttonNmbr);
+                fabPane.visualizeFabric(this.loom.fabric);
             });
 
             treadleButtons.getChildren().add(treadleButton);
@@ -123,10 +126,10 @@ public class Ui extends Application {
         layout.setPadding(new Insets(20, 20, 20, 20));
 
         Scene welcome = new Scene(layout);
-
+        this.loom = new Loom();
         //Lisätään toiminnallisuudet tervetulonäkymän napeille
         createNew.setOnAction((event) -> {
-            this.loom = new Loom();
+            //this.loom = new Loom();
             window.setScene(createWeaveScene());
         });
 
