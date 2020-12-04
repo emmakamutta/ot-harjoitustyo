@@ -48,6 +48,8 @@ public class Ui extends Application {
         weaveLayout.add(toPane, 2, 1);
         weaveLayout.add(hedPane, 1, 2);
         weaveLayout.add(treadPane, 2, 2);
+        
+        fabPane.setRotate(180);
 
         Button confirmTreadles = new Button("Lukitse sidonta");
         Button confirmHeddles = new Button("Lukitse niisintä");
@@ -76,6 +78,7 @@ public class Ui extends Application {
             treadleButton.setOnAction((event) -> {
                 this.loom.weave(buttonNmbr);
                 fabPane.visualizeFabric(this.loom.fabric);
+                toPane.visualize(buttonNmbr);
             });
 
             treadleButtons.getChildren().add(treadleButton);
