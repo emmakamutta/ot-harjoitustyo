@@ -34,18 +34,23 @@ public class HeddlesPane extends GridPane {
                 rec.setStroke(Color.LIGHTGRAY);
                 rec.setFill(Color.WHITE);
 
+                String key = Integer.toString(i) + Integer.toString(j);
+                rectangles.put(key, rec);
+                
+                int col = i;
+                
                 rec.setOnMouseClicked((event) -> {
                     if (modifiable) {
                         if (rec.getFill() == Color.BLACK) {
                             rec.setFill(Color.WHITE);
                         } else {
+                            if (columnHasBlackSquare(col)) {
+                                clearColumn(col);
+                            }
                             rec.setFill(Color.BLACK);
                         }
                     }
                 });
-
-                String key = Integer.toString(i) + Integer.toString(j);
-                rectangles.put(key, rec);
 
                 add(rec, i, j);
             }
@@ -81,5 +86,24 @@ public class HeddlesPane extends GridPane {
 
         return hed;
     }
+    
+    public void clearColumn(int column) {
+        for (int i = 0; i < height; i++) {
+            String key = Integer.toString(column) + Integer.toString(i);
+            rectangles.get(key).setFill(Color.WHITE);
+        }
+    }
 
+    public Boolean columnHasBlackSquare(int column) {
+        Boolean hasBlack = false;
+        
+        for (int i = 0; i < height; i++) {
+            String key = Integer.toString(column) + Integer.toString(i);
+            if (rectangles.get(key).getFill() == Color.BLACK) {
+                hasBlack = true;
+            }
+        }
+        
+        return hasBlack;
+    }
 }

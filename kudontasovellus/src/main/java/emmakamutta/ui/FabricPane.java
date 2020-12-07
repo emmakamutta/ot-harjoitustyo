@@ -57,5 +57,11 @@ public class FabricPane extends GridPane {
         rectangles.get(key).setFill(color);
 
     }
+    
+    public void clearRow(int row) {
+        for (int i = 0; i < this.length; i++) {
+            changeRecColor(row, i, Color.WHITE);
+        }
+    }
 
 }

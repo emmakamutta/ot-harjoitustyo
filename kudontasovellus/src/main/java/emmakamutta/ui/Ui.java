@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.*;
@@ -22,9 +23,12 @@ import javafx.stage.Stage;
  */
 public class Ui extends Application {
 
-    private static final int SQUARE_SIZE = 30;
+    private static final int SQUARE_SIZE = 25;
 
     private Loom loom;
+    private Boolean readyToWeave = false;
+    private Boolean treadlesLocked = false;
+    private Boolean heddlesLocked = false;
 
     public Ui() {
     }
@@ -33,7 +37,7 @@ public class Ui extends Application {
         //Luodaan näkymä uudelle kudontamallille
         GridPane weaveLayout = new GridPane();
 
-        weaveLayout.setPrefSize(800, 800);
+        weaveLayout.setPrefSize(800, 1200);
         weaveLayout.setAlignment(Pos.TOP_LEFT);
         weaveLayout.setVgap(20);
         weaveLayout.setHgap(20);
@@ -48,7 +52,7 @@ public class Ui extends Application {
         weaveLayout.add(toPane, 2, 1);
         weaveLayout.add(hedPane, 1, 2);
         weaveLayout.add(treadPane, 2, 2);
-        
+
         fabPane.setRotate(180);
 
         Button confirmTreadles = new Button("Lukitse sidonta");
@@ -60,36 +64,48 @@ public class Ui extends Application {
         confirmTreadles.setOnAction((event) -> {
             treadPane.setModifiable(false);
             loom.setTreadles(treadPane.convertToTreadles());
-            
+            this.treadlesLocked = true;
+            if (treadlesLocked && heddlesLocked) {
+                this.readyToWeave = true;
+            }
         });
 
         confirmHeddles.setOnAction((event) -> {
             hedPane.setModifiable(false);
-            loom.setHeddles(hedPane.convertToHeddles()); 
-           
+            loom.setHeddles(hedPane.convertToHeddles());
+            this.heddlesLocked = true;
+            if (treadlesLocked && heddlesLocked) {
+                this.readyToWeave = true;
+            }
         });
 
         HBox treadleButtons = new HBox();
         for (int i = 0; i < loom.treadleAmount; i++) {
-            Button treadleButton = new Button("Poljin " + (i+1));
-            int buttonNmbr = Integer.parseInt(treadleButton.getText().substring(7))-1;
-            
-            
+            Button treadleButton = new Button("Poljin " + (i + 1));
+            int buttonNmbr = Integer.parseInt(treadleButton.getText().substring(7)) - 1;
+
             treadleButton.setOnAction((event) -> {
-                this.loom.weave(buttonNmbr);
-                fabPane.visualizeFabric(this.loom.fabric);
-                toPane.visualize(buttonNmbr);
-                //System.out.println(loom.fabric.toString());
+                if (readyToWeave) {
+
+                    this.loom.weave(buttonNmbr);
+                    fabPane.visualizeFabric(this.loom.fabric);
+                    toPane.visualize(buttonNmbr);
+                } else {
+                    Alert notReadyAlert = new Alert(AlertType.ERROR);
+                    notReadyAlert.setTitle("Virhe");
+                    notReadyAlert.setHeaderText("Ei valmis kutomaan");
+                    notReadyAlert.setContentText("Lukitse ensin niisintä ja polkusten sidonta");
+
+                    notReadyAlert.showAndWait();
+                }
             });
 
             treadleButtons.getChildren().add(treadleButton);
         }
         weaveLayout.add(treadleButtons, 1, 4);
-        
-        final Label info = new Label("Vinkki: klikkaa ruutuja");
 
-        weaveLayout.add(info, 2, 4);
         
+
         Scene weaveScene = new Scene(weaveLayout);
 
         return weaveScene;
