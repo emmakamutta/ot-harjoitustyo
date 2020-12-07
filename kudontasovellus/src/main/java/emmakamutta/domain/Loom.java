@@ -31,7 +31,7 @@ public class Loom {
     public Loom(int shafts, int treadleamount) {
         this.shafts = shafts;
         this.treadleAmount = treadleamount;
-        this.fabricWidth = 10;
+        this.fabricWidth = 20;
         this.heddles = new Heddles(shafts, fabricWidth);
         this.treadles = new UniversalGrid(shafts, treadleamount);
         this.fabric = new Fabric(fabricWidth);
