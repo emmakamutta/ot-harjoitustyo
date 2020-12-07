@@ -27,8 +27,8 @@ public class TreadlesPane extends GridPane {
         this.width = loom.treadleAmount;
         this.height = loom.shafts;
 
-        for (int i = 0; i < loom.shafts; i++) {
-            for (int j = 0; j < loom.treadleAmount; j++) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 Rectangle rec = new Rectangle(this.squareSize - 2, this.squareSize - 2);
                 rec.setStroke(Color.LIGHTGRAY);
                 rec.setFill(Color.WHITE);

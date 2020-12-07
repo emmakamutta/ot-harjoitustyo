@@ -79,6 +79,9 @@ public class Ui extends Application {
             }
         });
 
+        HBox weavingButtons = new HBox();
+        weavingButtons.setSpacing(30);
+        
         HBox treadleButtons = new HBox();
         for (int i = 0; i < loom.treadleAmount; i++) {
             Button treadleButton = new Button("Poljin " + (i + 1));
@@ -102,7 +105,19 @@ public class Ui extends Application {
 
             treadleButtons.getChildren().add(treadleButton);
         }
-        weaveLayout.add(treadleButtons, 1, 4);
+        
+        weavingButtons.getChildren().add(treadleButtons);
+        
+        Button undoButton = new Button("Peruuta");
+        undoButton.setOnAction((event) -> {
+            this.loom.undo();
+            fabPane.visualizeFabric(this.loom.fabric);
+            toPane.clearLatestRow();
+        });
+        
+        weavingButtons.getChildren().add(undoButton);
+        
+        weaveLayout.add(weavingButtons, 1, 4);
 
         
 
@@ -122,8 +137,11 @@ public class Ui extends Application {
         weaveLayout.setPadding(new Insets(20, 20, 20, 20));
 
         Scene defaultScene = new Scene(weaveLayout);
-
-        return defaultScene;
+        
+        this.loom = new Loom(6,4);
+        
+        return createWeaveScene();
+        //return defaultScene;
     }
 
     @Override
@@ -133,6 +151,7 @@ public class Ui extends Application {
         //Luodaan ensin tervetulonäkymä
         GridPane layout = new GridPane();
         VBox menu = new VBox();
+        menu.setSpacing(10);
         Button createNew = new Button("Uusi kudontamalli");
         Button createCustom = new Button("Uusi kudontamalli omilla asetuksilla");
 
@@ -146,10 +165,10 @@ public class Ui extends Application {
         layout.setPadding(new Insets(20, 20, 20, 20));
 
         Scene welcome = new Scene(layout);
-        this.loom = new Loom();
+        
         //Lisätään toiminnallisuudet tervetulonäkymän napeille
         createNew.setOnAction((event) -> {
-            //this.loom = new Loom();
+            this.loom = new Loom();
             window.setScene(createWeaveScene());
         });
 

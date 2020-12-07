@@ -45,6 +45,8 @@ public class FabricPane extends GridPane {
             for (int j = 0; j < length; j++) {
                 if (fabric.grid[i][j] == 1) {
                     changeRecColor(j, i, Color.BLACK);
+                } else {
+                    changeRecColor(j, i, Color.WHITE);
                 }
             }
         }
@@ -58,10 +60,5 @@ public class FabricPane extends GridPane {
 
     }
     
-    public void clearRow(int row) {
-        for (int i = 0; i < this.length; i++) {
-            changeRecColor(row, i, Color.WHITE);
-        }
-    }
 
 }

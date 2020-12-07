@@ -50,4 +50,12 @@ public class TreadOrderPane extends GridPane {
         rectangles.get(key).setFill(color);
 
     }
+    
+    public void clearLatestRow() {
+        
+        for (int i = 0; i < this.length; i++) {
+            changeRecColor(weaved-1, i, Color.WHITE);
+        }
+        weaved--;
+    }
 }
