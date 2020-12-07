@@ -18,4 +18,5 @@
 |       | 0,5  | Sekvenssikaavio piirretty |
 |       | 1,5  | Ensimmäisen releasen teko ja yleisiä hommia |
 |4.12.  | 4    | Lähinnä debuggailua      |
-| yht.  | 36   | | 
+|7.12.  | 3    | Käyttöliittymän koodausta |
+| yht.  | 39   | | 
