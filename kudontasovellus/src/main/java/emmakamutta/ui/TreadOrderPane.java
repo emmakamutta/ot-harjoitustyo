@@ -16,12 +16,14 @@ public class TreadOrderPane extends GridPane {
     private int weaved;
     private HashMap<String, Rectangle> rectangles;
     private int length;
+    private int width;
 
     public TreadOrderPane(Loom loom, int squareSize) {
         this.squareSize = squareSize;
         this.rectangles = new HashMap<>();
         this.weaved = 0;
         this.length = loom.fabricWidth;
+        this.width = loom.treadleAmount;
 
         for (int i = 0; i < loom.treadleAmount; i++) {
             for (int j = 0; j < loom.fabricWidth; j++) {
@@ -57,5 +59,15 @@ public class TreadOrderPane extends GridPane {
             changeRecColor(weaved-1, i, Color.WHITE);
         }
         weaved--;
+    }
+    
+    public void clear() {
+        for (int i = 0; i < this.width; i++) {
+            for (int j = 0; j < this.length; j++) {
+                String key = Integer.toString(i) + Integer.toString(j);
+                rectangles.get(key).setFill(Color.WHITE);
+            }
+        }
+        this.weaved = 0;
     }
 }

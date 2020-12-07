@@ -8,8 +8,8 @@ public class Fabric extends UniversalGrid {
 
     public int weavedRows;
 
-    public Fabric(int length, int width) {
-        super(length, width);
+    public Fabric(int width) {
+        super(width, width);
         this.weavedRows = 0;
     }
 

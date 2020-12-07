@@ -19,10 +19,10 @@ public class Loom {
     public Loom() {
         this.shafts = 4;
         this.treadleAmount = 4;
-        this.fabricWidth = 10;      //HUOM!!! nyt 10 - onko tämä lopullinen oletusarvo?
+        this.fabricWidth = 20;      //HUOM!!! nyt 10 - onko tämä lopullinen oletusarvo?
         this.heddles = new Heddles(shafts, fabricWidth);
         this.treadles = new UniversalGrid(shafts, treadleAmount);
-        this.fabric = new Fabric(fabricWidth, fabricWidth);
+        this.fabric = new Fabric(fabricWidth);
         this.weaveTreadles = new HashMap<>();
         this.treadOrder = new ArrayDeque<>();
         
@@ -34,7 +34,7 @@ public class Loom {
         this.fabricWidth = 10;
         this.heddles = new Heddles(shafts, fabricWidth);
         this.treadles = new UniversalGrid(shafts, treadleamount);
-        this.fabric = new Fabric(fabricWidth, fabricWidth);
+        this.fabric = new Fabric(fabricWidth);
         this.weaveTreadles = new HashMap<>();
         this.treadOrder = new ArrayDeque<>();
     }
@@ -45,7 +45,7 @@ public class Loom {
         this.shafts = heddles.getColumn(0).length;
         this.fabricWidth = heddles.getRow(0).length;
         this.treadleAmount = treadles.getRow(0).length;
-        this.fabric = new Fabric(fabricWidth, fabricWidth);
+        this.fabric = new Fabric(fabricWidth);
         this.weaveTreadles = new HashMap<>();
         this.treadOrder = new ArrayDeque<>();
     }

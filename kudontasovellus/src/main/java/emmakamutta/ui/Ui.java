@@ -1,5 +1,6 @@
 package emmakamutta.ui;
 
+import emmakamutta.domain.Fabric;
 import emmakamutta.domain.Grid;
 import emmakamutta.domain.Loom;
 import emmakamutta.domain.UniversalGrid;
@@ -119,7 +120,14 @@ public class Ui extends Application {
         
         weaveLayout.add(weavingButtons, 1, 4);
 
+        Button clearButton = new Button("Tyhjennä kangas");
+        clearButton.setOnAction((event) -> {
+            this.loom.fabric = new Fabric(this.loom.fabricWidth);
+            fabPane.visualizeFabric(this.loom.fabric);
+            toPane.clear();
+        });
         
+        weaveLayout.add(clearButton, 1, 0);
 
         Scene weaveScene = new Scene(weaveLayout);
 
@@ -138,10 +146,9 @@ public class Ui extends Application {
 
         Scene defaultScene = new Scene(weaveLayout);
         
-        this.loom = new Loom(6,4);
         
-        return createWeaveScene();
-        //return defaultScene;
+        
+        return defaultScene;
     }
 
     @Override
