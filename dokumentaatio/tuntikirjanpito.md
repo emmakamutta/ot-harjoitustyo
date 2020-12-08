@@ -19,4 +19,5 @@
 |       | 1,5  | Ensimmäisen releasen teko ja yleisiä hommia |
 |4.12.  | 4    | Lähinnä debuggailua      |
 |7.12.  | 3    | Käyttöliittymän koodausta |
-| yht.  | 39   | | 
+|8.12.  | 2    | -,,-   |
+| yht.  | 41   | | 
