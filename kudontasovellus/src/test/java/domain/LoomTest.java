@@ -51,7 +51,7 @@ public class LoomTest {
     public void getWeavedRowReturnsCorrectly() {
         int[] correct = {0, 1, 1, 0};
         
-        //Assert.assertArrayEquals(correct, loom.getWeavedRow(0));
+        Assert.assertArrayEquals(correct, loom.getWeavedRow(0));
     }
     
     @Test
@@ -82,6 +82,19 @@ public class LoomTest {
         }
         
         assertEquals("013",s);
+    }
+    
+    @Test
+    public void undoRemovesLastFromTreadOrder() {
+        loom.weave(0);
+        loom.weave(1);
+        loom.weave(2);
+        
+        loom.undo();
+        
+        int last = loom.treadOrder.getLast();
+        
+        assertEquals(1, last);
     }
 
 }

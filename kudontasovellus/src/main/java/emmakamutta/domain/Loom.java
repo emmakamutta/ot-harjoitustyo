@@ -80,7 +80,7 @@ public class Loom {
      * @param treadle painettu polkunen
      * @return kudottu rivi
      */
-    private int[] getWeavedRow(int treadle) {
+    public int[] getWeavedRow(int treadle) {
 
         int[] bounded = treadles.getColumn(treadle);
         int[] weavedRow = new int[fabricWidth];
