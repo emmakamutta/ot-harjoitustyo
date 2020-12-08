@@ -1,8 +1,7 @@
 package emmakamutta.domain;
 
 /**
- *
- * tämä luokka on tavallinen ruudukko
+ * Luokka kuvaa kaksiulotteista ruudukkoa.
  */
 public class UniversalGrid implements Grid {
 
@@ -13,35 +12,34 @@ public class UniversalGrid implements Grid {
     public UniversalGrid() {
     }
 
-    
+    /**
+     * Konstruktori, joka luo uuden ruudukon annetuilla dimensioilla.
+     *
+     * @param length rivien lukumäärä
+     * @param width sarakkeiden lukumäärä
+     */
     public UniversalGrid(int length, int width) {
         this.length = length;
         this.width = width;
         this.grid = new int[length][width];
     }
 
+    /**
+     *KOnstruktori, joka luo uuden UniversalGrid olion valmiista int[][] ruudukosta.
+     * @param grid
+     */
     public UniversalGrid(int[][] grid) {
         this.grid = grid;
         this.length = grid.length;
         this.width = grid[0].length;
     }
 
-    @Override
-    public String toString() {
-        String s = "\n";
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < width; j++) {
-                if (grid[i][j] == 1) {
-                    s += "1";
-                } else {
-                    s += "0";
-                }
-            }
-            s += "\n";
-        }
-        return s;
-    }
-
+    /**
+     * Metodi hakee ja palauttaa pyydetyn sarakkeen ruudukosta.
+     *
+     * @param columnNmbr sarakkeen numero
+     * @return kysytty sarake
+     */
     @Override
     public int[] getColumn(int columnNmbr) {
 
@@ -56,9 +54,14 @@ public class UniversalGrid implements Grid {
 
         return column;
     }
-    
+
+    /**
+     * Metodi hakee ja palauttaa halutun rivin ruudukosta.
+     * @param rowNmbr rivin numero
+     * @return haluttu rivi
+     */
     @Override
     public int[] getRow(int rowNmbr) {
         return grid[rowNmbr];
-    } 
+    }
 }

@@ -1,14 +1,30 @@
 package emmakamutta.domain;
 
 /**
- * Tämä luokka kuvaa kangaspuiden niisintää
+ * Luokka kuvaa kangaspuiden niisintää.
  */
 public class Heddles extends UniversalGrid {
 
+    /**
+     * Konstruktori, joka luo uuden niisinnän annetuilla dimensioilla. Käyttää
+     * suoraan luokan UniversalGrid vastaavaa konstruktoria.
+     *
+     * @param shafts niisivarsien lukumäärä
+     * @param columns sarakkeiden lukumäärä (sama kuin kankaan leveys)
+     * 
+     * @see emmakamutta.domain.UniversalGrid#UniversalGrid(int,int)
+     * 
+     */
     public Heddles(int shafts, int columns) {
         super(shafts, columns);
     }
 
+    /**
+     * Konstruktori, joka luo uuden niisinnän valmiin int[][] -taulukon
+     * pohjalta.
+     *
+     * @param grid kaksiulotteinen kokonaislukutaulukko
+     */
     public Heddles(int[][] grid) {
         if (hasTooManyOnes(grid)) {
             throw new IllegalArgumentException("Niisintä ei ole oikein");
@@ -18,8 +34,13 @@ public class Heddles extends UniversalGrid {
         this.width = grid[0].length;
     }
 
-    //Kudonnassa niisimisessä on tärkeää, että yksi lanka ei mene kuin yhden niidensilmän läpi, muuten kangaspuut eivät toimi
-    // Siis tässä koodissa niisinnässä saa olla vain yksi ykkönen yhdessä sarakkseessa.
+    /**
+     * Metodi tarkastaa, onko jossain ruudukon sarakkeessa useampi kuin yksi 1,
+     * sillä muutoin kangaspuut eivät toimisi.
+     *
+     * @param grid
+     * @return
+     */
     private boolean hasTooManyOnes(int[][] grid) {
         int ones = 0;
 
@@ -37,7 +58,7 @@ public class Heddles extends UniversalGrid {
 
         return false;
     }
-    
+
     @Override
     public int[] getColumn(int columnNmbr) {
 
@@ -49,9 +70,9 @@ public class Heddles extends UniversalGrid {
 
         return column;
     }
-    
+
     @Override
     public int[] getRow(int rowNmbr) {
         return grid[rowNmbr];
-    } 
+    }
 }
