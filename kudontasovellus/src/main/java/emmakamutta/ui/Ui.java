@@ -6,6 +6,7 @@ import emmakamutta.domain.Loom;
 import emmakamutta.domain.UniversalGrid;
 import java.util.HashMap;
 import javafx.application.Application;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -38,7 +39,7 @@ public class Ui extends Application {
         //Luodaan näkymä uudelle kudontamallille
         GridPane weaveLayout = new GridPane();
 
-        weaveLayout.setPrefSize(800, 1200);
+        weaveLayout.setPrefSize(800, 600);
         weaveLayout.setAlignment(Pos.TOP_LEFT);
         weaveLayout.setVgap(20);
         weaveLayout.setHgap(20);
@@ -134,21 +135,61 @@ public class Ui extends Application {
         return weaveScene;
     }
 
-    private Scene createCustomScene() {
+    private Scene createCustomScene(Stage window) {
         //Luodaan näkymä uudelle kudontamallille itse määritellyillä kangaspuilla
-        GridPane weaveLayout = new GridPane();
-        weaveLayout.add(new Label("Tulossa pian ;)"), 1, 1);
-        weaveLayout.setPrefSize(300, 180);
-        weaveLayout.setAlignment(Pos.CENTER);
-        weaveLayout.setVgap(10);
-        weaveLayout.setHgap(10);
-        weaveLayout.setPadding(new Insets(20, 20, 20, 20));
+        GridPane layout = new GridPane();
+        layout.setPrefSize(300, 300);
+        layout.setAlignment(Pos.CENTER);
+        layout.setVgap(10);
+        layout.setHgap(10);
+        layout.setPadding(new Insets(20, 20, 20, 20));
+        
+        Slider heddlesSlider = new Slider();
+        heddlesSlider.setMin(2);
+        heddlesSlider.setMax(8);
+        heddlesSlider.setValue(4);
+        heddlesSlider.setShowTickLabels(true);
+        heddlesSlider.setShowTickMarks(true);
+        heddlesSlider.setMajorTickUnit(1);
+        heddlesSlider.setMinorTickCount(0);
+        heddlesSlider.setSnapToTicks(true);
+        heddlesSlider.setBlockIncrement(1);
+        
+        int heddles = 0;
+        
+        heddlesSlider.valueProperty().addListener((
+                ObservableValue<? extends Number> ov, Number old_val, 
+            Number new_val) -> {
+            //heddles = new_val.intValue();
+        });
 
-        Scene defaultScene = new Scene(weaveLayout);
+        layout.add(new Label("Niisivarsia: "), 0, 2);
+        layout.add(heddlesSlider, 1, 2);
         
+        Slider treadlesSlider = new Slider();
+        treadlesSlider.setMin(2);
+        treadlesSlider.setMax(8);
+        treadlesSlider.setValue(4);
+        treadlesSlider.setShowTickLabels(true);
+        treadlesSlider.setShowTickMarks(true);
+        treadlesSlider.setMajorTickUnit(1);
+        treadlesSlider.setMinorTickCount(0);
+        treadlesSlider.setSnapToTicks(true);
+        treadlesSlider.setBlockIncrement(1);
         
+        layout.add(new Label("Polkusia: "), 0, 3);
+        layout.add(treadlesSlider, 1, 3);
         
-        return defaultScene;
+        this.loom = new Loom(3,5);
+        
+        Button jatka = new Button("eteenpäin");
+        jatka.setOnAction((event) -> {
+            window.setScene(createWeaveScene());
+        });
+        //window.setScene(createWeaveScene());
+        layout.add(jatka, 2, 2);
+        Scene customizeScene = new Scene(layout);
+        return customizeScene;
     }
 
     @Override
@@ -180,7 +221,7 @@ public class Ui extends Application {
         });
 
         createCustom.setOnAction((event) -> {
-            window.setScene(createCustomScene());
+            window.setScene(createCustomScene(window));
         });
 
         window.setScene(welcome);
