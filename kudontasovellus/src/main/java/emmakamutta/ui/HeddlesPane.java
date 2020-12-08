@@ -106,4 +106,16 @@ public class HeddlesPane extends GridPane {
         
         return hasBlack;
     }
+    
+    public void setLockedColors() {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                String s = Integer.toString(j) + Integer.toString(i);
+                if (rectangles.get(s).getFill() == Color.BLACK) {
+                    rectangles.get(s).setFill(Color.DARKGRAY);
+                }
+
+            }
+        }
+    }
 }

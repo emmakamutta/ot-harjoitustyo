@@ -47,20 +47,24 @@ public class TreadOrderPane extends GridPane {
     }
 
     private void changeRecColor(int x, int y, Color color) {
-        String key = "" + x + y;
-
-        rectangles.get(key).setFill(color);
-
-    }
-    
-    public void clearLatestRow() {
-        
-        for (int i = 0; i < this.length; i++) {
-            changeRecColor(weaved-1, i, Color.WHITE);
+        String key = Integer.toString(x) + Integer.toString(y);
+        if (rectangles.containsKey(key)) {
+            rectangles.get(key).setFill(color);
         }
-        weaved--;
+
     }
-    
+
+    public void clearLatestRow() {
+        if (weaved > 0) {
+
+            for (int i = 0; i < width; i++) {
+                String key = Integer.toString(i) + Integer.toString(length - weaved);
+                rectangles.get(key).setFill(Color.WHITE);
+            }
+            weaved--;
+        }
+    }
+
     public void clear() {
         for (int i = 0; i < this.width; i++) {
             for (int j = 0; j < this.length; j++) {

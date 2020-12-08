@@ -70,6 +70,7 @@ public class Ui extends Application {
             if (treadlesLocked && heddlesLocked) {
                 this.readyToWeave = true;
             }
+            treadPane.setLockedColors();
         });
 
         confirmHeddles.setOnAction((event) -> {
@@ -79,6 +80,7 @@ public class Ui extends Application {
             if (treadlesLocked && heddlesLocked) {
                 this.readyToWeave = true;
             }
+            hedPane.setLockedColors();
         });
 
         HBox weavingButtons = new HBox();
@@ -112,9 +114,13 @@ public class Ui extends Application {
         
         Button undoButton = new Button("Peruuta");
         undoButton.setOnAction((event) -> {
+            if (this.loom.treadOrder.size() > 0) {
+                
+            
             this.loom.undo();
             fabPane.visualizeFabric(this.loom.fabric);
             toPane.clearLatestRow();
+            }
         });
         
         weavingButtons.getChildren().add(undoButton);
@@ -154,14 +160,6 @@ public class Ui extends Application {
         heddlesSlider.setMinorTickCount(0);
         heddlesSlider.setSnapToTicks(true);
         heddlesSlider.setBlockIncrement(1);
-        
-        int heddles = 0;
-        
-        heddlesSlider.valueProperty().addListener((
-                ObservableValue<? extends Number> ov, Number old_val, 
-            Number new_val) -> {
-            //heddles = new_val.intValue();
-        });
 
         layout.add(new Label("Niisivarsia: "), 0, 2);
         layout.add(heddlesSlider, 1, 2);
@@ -182,12 +180,15 @@ public class Ui extends Application {
         
         this.loom = new Loom(3,5);
         
-        Button jatka = new Button("eteenpäin");
-        jatka.setOnAction((event) -> {
+        Button continueButton = new Button("Luo");
+        continueButton.setOnAction((event) -> {
+            int shafts = (int) heddlesSlider.getValue();
+            int treadles = (int) treadlesSlider.getValue();
+            this.loom = new Loom(shafts,treadles);
             window.setScene(createWeaveScene());
         });
-        //window.setScene(createWeaveScene());
-        layout.add(jatka, 2, 2);
+    
+        layout.add(continueButton, 1, 4);
         Scene customizeScene = new Scene(layout);
         return customizeScene;
     }
@@ -200,10 +201,9 @@ public class Ui extends Application {
         GridPane layout = new GridPane();
         VBox menu = new VBox();
         menu.setSpacing(10);
-        Button createNew = new Button("Uusi kudontamalli");
-        Button createCustom = new Button("Uusi kudontamalli omilla asetuksilla");
+        Button createButton = new Button("Uusi kudontamalli");
 
-        menu.getChildren().addAll(createNew, createCustom);
+        menu.getChildren().addAll(createButton);
         layout.add(menu, 1, 1);
 
         layout.setPrefSize(300, 180);
@@ -214,13 +214,8 @@ public class Ui extends Application {
 
         Scene welcome = new Scene(layout);
         
-        //Lisätään toiminnallisuudet tervetulonäkymän napeille
-        createNew.setOnAction((event) -> {
-            this.loom = new Loom();
-            window.setScene(createWeaveScene());
-        });
 
-        createCustom.setOnAction((event) -> {
+        createButton.setOnAction((event) -> {
             window.setScene(createCustomScene(window));
         });
 
