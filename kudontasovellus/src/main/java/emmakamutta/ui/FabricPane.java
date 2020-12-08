@@ -30,7 +30,7 @@ public class FabricPane extends GridPane {
                 rec.setStroke(Color.LIGHTGRAY);
                 rec.setFill(Color.WHITE);
 
-                String key = Integer.toString(i) + "," +Integer.toString(j);
+                String key = Integer.toString(i) + "," + Integer.toString(j);
                 
                 rectangles.put(key, rec);
 
@@ -53,7 +53,7 @@ public class FabricPane extends GridPane {
     }
 
     public void changeRecColor(int x, int y, Color color) {
-        String key = Integer.toString(x) + "," +Integer.toString(y);
+        String key = Integer.toString(x) + "," + Integer.toString(y);
         
 
         rectangles.get(key).setFill(color);

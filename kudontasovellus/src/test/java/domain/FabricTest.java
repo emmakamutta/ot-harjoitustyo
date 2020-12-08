@@ -22,7 +22,7 @@ public class FabricTest {
 
     @Before
     public void setUp() {
-        this.fabric = new Fabric(4, 5);
+        this.fabric = new Fabric(5);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class FabricTest {
     @Test
     public void weavingFullFabricDoesntChangeIt() {
         int[] ex = {1, 0, 1, 0, 1};
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             fabric.weaveRow(ex);
         }
         
@@ -48,7 +48,7 @@ public class FabricTest {
         fabric.weaveRow(row);
         
         boolean correct = true;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             if (fabric.grid[i] == row) {
                 correct = false;
             }

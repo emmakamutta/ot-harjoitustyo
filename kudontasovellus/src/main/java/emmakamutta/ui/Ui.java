@@ -85,7 +85,7 @@ public class Ui extends Application {
 
         HBox weavingButtons = new HBox();
         weavingButtons.setSpacing(30);
-        
+
         HBox treadleButtons = new HBox();
         for (int i = 0; i < loom.treadleAmount; i++) {
             Button treadleButton = new Button("Poljin " + (i + 1));
@@ -109,22 +109,21 @@ public class Ui extends Application {
 
             treadleButtons.getChildren().add(treadleButton);
         }
-        
+
         weavingButtons.getChildren().add(treadleButtons);
-        
+
         Button undoButton = new Button("Peruuta");
         undoButton.setOnAction((event) -> {
             if (this.loom.treadOrder.size() > 0) {
-                
-            
-            this.loom.undo();
-            fabPane.visualizeFabric(this.loom.fabric);
-            toPane.clearLatestRow();
+
+                this.loom.undo();
+                fabPane.visualizeFabric(this.loom.fabric);
+                toPane.clearLatestRow();
             }
         });
-        
+
         weavingButtons.getChildren().add(undoButton);
-        
+
         weaveLayout.add(weavingButtons, 1, 4);
 
         Button clearButton = new Button("Tyhjennä kangas");
@@ -133,8 +132,17 @@ public class Ui extends Application {
             fabPane.visualizeFabric(this.loom.fabric);
             toPane.clear();
         });
-        
+
         weaveLayout.add(clearButton, 1, 0);
+
+        Button clearAllButton = new Button("Tyhjennä kaikki");
+        clearAllButton.setOnAction((event) -> {
+            Loom clearedLoom = new Loom(this.loom.shafts, this.loom.treadleAmount);
+            this.loom = clearedLoom;
+            createWeaveScene();
+        });
+        
+        weaveLayout.add(clearAllButton, 2, 0);
 
         Scene weaveScene = new Scene(weaveLayout);
 
@@ -149,7 +157,7 @@ public class Ui extends Application {
         layout.setVgap(10);
         layout.setHgap(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
-        
+
         Slider heddlesSlider = new Slider();
         heddlesSlider.setMin(2);
         heddlesSlider.setMax(8);
@@ -163,7 +171,7 @@ public class Ui extends Application {
 
         layout.add(new Label("Niisivarsia: "), 0, 2);
         layout.add(heddlesSlider, 1, 2);
-        
+
         Slider treadlesSlider = new Slider();
         treadlesSlider.setMin(2);
         treadlesSlider.setMax(8);
@@ -174,20 +182,20 @@ public class Ui extends Application {
         treadlesSlider.setMinorTickCount(0);
         treadlesSlider.setSnapToTicks(true);
         treadlesSlider.setBlockIncrement(1);
-        
+
         layout.add(new Label("Polkusia: "), 0, 3);
         layout.add(treadlesSlider, 1, 3);
-        
-        this.loom = new Loom(3,5);
-        
+
+        this.loom = new Loom(3, 5);
+
         Button continueButton = new Button("Luo");
         continueButton.setOnAction((event) -> {
             int shafts = (int) heddlesSlider.getValue();
             int treadles = (int) treadlesSlider.getValue();
-            this.loom = new Loom(shafts,treadles);
+            this.loom = new Loom(shafts, treadles);
             window.setScene(createWeaveScene());
         });
-    
+
         layout.add(continueButton, 1, 4);
         Scene customizeScene = new Scene(layout);
         return customizeScene;
@@ -213,7 +221,6 @@ public class Ui extends Application {
         layout.setPadding(new Insets(20, 20, 20, 20));
 
         Scene welcome = new Scene(layout);
-        
 
         createButton.setOnAction((event) -> {
             window.setScene(createCustomScene(window));
