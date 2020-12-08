@@ -4,9 +4,10 @@
 Sovelluksen avulla voi suunnitella omia kudontamalleja määrittelemällä ensin käytettävät kangaspuut ja sitten suunnittelemalla malliin tulevan niisinnän ja polkusten sidonnan.
 Kudottua pintaa voi mallintaa kokeilemalla erilaisia polkemisjärjestyksiä ja siten simuloida kutomista suunnittelemallaan mallilla.
 
-### Release 1 viikolla 5
+### Releaset 
 
-* [release 1](https://github.com/emmakamutta/ot-harjoitustyo/releases/tag/viikko5)
+* [release 1 (vko 5)](https://github.com/emmakamutta/ot-harjoitustyo/releases/tag/viikko5)
+* [release 2 (vko 6)](https://github.com/emmakamutta/ot-harjoitustyo/releases/tag/Viikko6)
 
 ### Dokumentaatio
 
