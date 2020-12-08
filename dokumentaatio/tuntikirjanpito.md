@@ -19,5 +19,6 @@
 |       | 1,5  | Ensimmäisen releasen teko ja yleisiä hommia |
 |4.12.  | 4    | Lähinnä debuggailua      |
 |7.12.  | 3    | Käyttöliittymän koodausta |
-|8.12.  | 2    | -,,-   |
-| yht.  | 41   | | 
+|8.12.  | 3    | -,,-   |
+|       | 1    | Javadoc käyttöönotto |
+| yht.  | 43   | | 
