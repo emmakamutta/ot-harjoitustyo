@@ -45,15 +45,6 @@ public class UniversalGridTest {
         Assert.assertArrayEquals(row, grid.getRow(3));
     }
     
-    @Test
-    public void toStringWorks() {
-        int[][] ex = {{0,1,1}, 
-                     {1,0,1}};
-        
-        UniversalGrid grid = new UniversalGrid(ex);
-        
-        assertEquals("\n011\n101\n",grid.toString());
-    }
     
     @Test
     public void constructorWithGivenGridWorks() {
