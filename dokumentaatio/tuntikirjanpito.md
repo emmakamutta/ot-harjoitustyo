@@ -21,4 +21,5 @@
 |7.12.  | 3    | Käyttöliittymän koodausta |
 |8.12.  | 3    | -,,-   |
 |       | 1    | Javadoc käyttöönotto |
-| yht.  | 43   | | 
+|       | 1,5  | Dokumentaation laatimista |
+| yht.  | 44,5   | | 
