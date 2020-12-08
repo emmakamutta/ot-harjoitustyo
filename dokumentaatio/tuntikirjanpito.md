@@ -22,4 +22,5 @@
 |8.12.  | 3    | -,,-   |
 |       | 1    | Javadoc käyttöönotto |
 |       | 1,5  | Dokumentaation laatimista |
-| yht.  | 44,5   | | 
+|       | 0,5  | Testauksen parantelua |
+| yht.  | 45   | | 
