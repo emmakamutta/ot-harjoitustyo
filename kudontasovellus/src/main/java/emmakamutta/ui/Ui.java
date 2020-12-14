@@ -58,6 +58,7 @@ public class Ui extends Application {
         weaveLayout.add(treadPane, 2, 2);
 
         fabPane.setRotate(180);
+        hedPane.setRotate(180);
 
         Button confirmTreadles = new Button("Lukitse sidonta");
         Button confirmHeddles = new Button("Lukitse niisintä");
@@ -145,16 +146,20 @@ public class Ui extends Application {
         clearAllButton.setOnAction((event) -> {
             Loom clearedLoom = new Loom(this.loom.shafts, this.loom.treadleAmount);
             this.loom = clearedLoom;
-            createWeaveScene();
+            this.readyToWeave = false;
+            this.treadlesLocked = false;
+            this.heddlesLocked = false;
+            this.window.setScene(createWeaveScene());
         });
         
         clearingButtons.getChildren().add(clearAllButton);
         
         Button newModelButton = new Button("Uusi malli");
         newModelButton.setOnAction((event) -> {
-            
+            this.window.setScene(createCustomScene());
         });
         
+        clearingButtons.getChildren().add(newModelButton);
 
         Scene weaveScene = new Scene(weaveLayout);
 
