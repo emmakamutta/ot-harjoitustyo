@@ -111,8 +111,11 @@ public class Loom {
      * Metodi kuvaa viimeisimmän kudotun rivin purkamista.
      */
     public void undo() {
-        this.fabric.unWeave();
-        this.treadOrder.pollLast();
+        if (!this.treadOrder.isEmpty()) {
+
+            this.fabric.unWeave();
+            this.treadOrder.pollLast();
+        }
     }
 
 }

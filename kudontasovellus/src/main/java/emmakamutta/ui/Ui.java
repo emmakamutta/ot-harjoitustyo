@@ -31,6 +31,8 @@ public class Ui extends Application {
     private Boolean readyToWeave = false;
     private Boolean treadlesLocked = false;
     private Boolean heddlesLocked = false;
+    
+    private Stage window;
 
     public Ui() {
     }
@@ -125,6 +127,9 @@ public class Ui extends Application {
         weavingButtons.getChildren().add(undoButton);
 
         weaveLayout.add(weavingButtons, 1, 4);
+        
+        HBox clearingButtons = new HBox();
+        clearingButtons.setSpacing(30);
 
         Button clearButton = new Button("Tyhjennä kangas");
         clearButton.setOnAction((event) -> {
@@ -132,8 +137,9 @@ public class Ui extends Application {
             fabPane.visualizeFabric(this.loom.fabric);
             toPane.clear();
         });
-
-        weaveLayout.add(clearButton, 1, 0);
+        
+        clearingButtons.getChildren().add(clearButton);
+        weaveLayout.add(clearingButtons, 1, 0);
 
         Button clearAllButton = new Button("Tyhjennä kaikki");
         clearAllButton.setOnAction((event) -> {
@@ -142,14 +148,20 @@ public class Ui extends Application {
             createWeaveScene();
         });
         
-        weaveLayout.add(clearAllButton, 2, 0);
+        clearingButtons.getChildren().add(clearAllButton);
+        
+        Button newModelButton = new Button("Uusi malli");
+        newModelButton.setOnAction((event) -> {
+            
+        });
+        
 
         Scene weaveScene = new Scene(weaveLayout);
 
         return weaveScene;
     }
 
-    private Scene createCustomScene(Stage window) {
+    private Scene createCustomScene() {
         //Luodaan näkymä uudelle kudontamallille itse määritellyillä kangaspuilla
         GridPane layout = new GridPane();
         layout.setPrefSize(300, 300);
@@ -193,16 +205,19 @@ public class Ui extends Application {
             int shafts = (int) heddlesSlider.getValue();
             int treadles = (int) treadlesSlider.getValue();
             this.loom = new Loom(shafts, treadles);
-            window.setScene(createWeaveScene());
+            this.window.setScene(createWeaveScene());
         });
 
         layout.add(continueButton, 1, 4);
         Scene customizeScene = new Scene(layout);
         return customizeScene;
     }
+    
+
 
     @Override
     public void start(Stage window) throws Exception {
+        this.window = window;
         window.setTitle("Kudontasovellus");
 
         //Luodaan ensin tervetulonäkymä
@@ -223,7 +238,7 @@ public class Ui extends Application {
         Scene welcome = new Scene(layout);
 
         createButton.setOnAction((event) -> {
-            window.setScene(createCustomScene(window));
+            this.window.setScene(createCustomScene());
         });
 
         window.setScene(welcome);
