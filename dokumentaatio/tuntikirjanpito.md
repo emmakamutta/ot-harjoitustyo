@@ -23,4 +23,6 @@
 |       | 1    | Javadoc käyttöönotto |
 |       | 1,5  | Dokumentaation laatimista |
 |       | 0,5  | Testauksen parantelua |
-| yht.  | 45   | | 
+|14.12. | 2    | Käyttöliittymän parantelua ja debuggausta |
+|       | 1    | JavaDocin täydennystä |
+| yht.  | 48   | | 
