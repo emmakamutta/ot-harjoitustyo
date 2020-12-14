@@ -114,7 +114,7 @@ public class Ui extends Application {
 
         Button undoButton = new Button("Peruuta");
         undoButton.setOnAction((event) -> {
-            if (this.loom.treadOrder.size() > 0) {
+            if (this.loom.fabric.weavedRows > 0) {
 
                 this.loom.undo();
                 fabPane.visualizeFabric(this.loom.fabric);

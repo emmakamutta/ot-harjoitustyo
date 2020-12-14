@@ -92,9 +92,16 @@ public class LoomTest {
         
         loom.undo();
         
-        int last = loom.treadOrder.getLast();
+        //int last = loom.treadOrder.getLast();
         
-        assertEquals(1, last);
+        String s = "";
+        for (Integer integer : loom.treadOrder) {
+            s += integer;
+        }
+        
+        assertEquals("01",s);
+        
+        //assertEquals(1, last);
     }
 
 }
