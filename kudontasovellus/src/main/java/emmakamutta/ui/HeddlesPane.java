@@ -9,7 +9,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- *
+ * Luokka kuvaa niisintää graafisena ruudukkona. Osa käyttöliittymän olioita.
+ * Perii JavaFX-luokan GridPane.
  *
  */
 public class HeddlesPane extends GridPane {
@@ -17,10 +18,21 @@ public class HeddlesPane extends GridPane {
     private int squareSize;
     private int height;
     private int width;
-
+    /**
+     * Oliomuuttuja kertoo sallitaanko niisintään muutoksia.
+     */
     private boolean modifiable;
     private HashMap<String, Rectangle> rectangles;
 
+    /**
+     * Luokan HeddlesPane konstruktori. Alustaa niisinnän tyhjänä ruudukkona,
+     * johon niisinnän voi määrittää klikkaamalla ruutuja. Muutoksen voi
+     * peruuttaa klikkaamalla ruutua uudelleen. Jokaisesta sarakkeesta voi olla
+     * vain yksi ruutu valittuna.
+     *
+     * @param loom käytettävät kangaspuut
+     * @param squareSize yhden ruudun sivun pituus
+     */
     public HeddlesPane(Loom loom, int squareSize) {
         this.squareSize = squareSize;
         this.modifiable = true;
@@ -36,9 +48,9 @@ public class HeddlesPane extends GridPane {
 
                 String key = Integer.toString(i) + Integer.toString(j);
                 rectangles.put(key, rec);
-                
+
                 int col = i;
-                
+
                 rec.setOnMouseClicked((event) -> {
                     if (modifiable) {
                         if (rec.getFill() == Color.BLACK) {
@@ -58,10 +70,22 @@ public class HeddlesPane extends GridPane {
 
     }
 
+    /**
+     * Muuttaa oliomuuttujan modifiable parametrina annetuksi totuusarvoksi.
+     *
+     * @param modifiable haluttu totuusarvo
+     */
     public void setModifiable(boolean modifiable) {
         this.modifiable = modifiable;
     }
 
+    /**
+     * Metodi muuttaa yksittäisen ruudun värin halutuksi.
+     *
+     * @param x ruudun x-koordinaatti
+     * @param y ruudun y-koordinaatti
+     * @param color haluttu väri
+     */
     public void changeRecColor(int x, int y, Color color) {
         String key = "" + x + y;
 
@@ -69,6 +93,13 @@ public class HeddlesPane extends GridPane {
 
     }
 
+    /**
+     * Metodi muuttaa graafisen HeddlesPane olion sovelluslogiikan luokan Loom
+     * kanssa yhteensopivaksi Heddles olioksi, joka kuvaa niisintää
+     * sovelluslogiikan puolella.
+     *
+     * @return Heddles-olio, joka vastaa graafista niisintää
+     */
     public Heddles convertToHeddles() {
         int[][] grid = new int[height][width];
 
@@ -86,7 +117,12 @@ public class HeddlesPane extends GridPane {
 
         return hed;
     }
-    
+
+    /**
+     * Metodi tyhjentää paremetrina annetun sarakkeen.
+     *
+     * @param column sarake
+     */
     public void clearColumn(int column) {
         for (int i = 0; i < height; i++) {
             String key = Integer.toString(column) + Integer.toString(i);
@@ -94,19 +130,29 @@ public class HeddlesPane extends GridPane {
         }
     }
 
+    /**
+     * Metodi tarkistaa, onko jossain sarakkeessa jo musta ruutu.
+     *
+     * @param column sarake
+     * @return true, jos musta ruutu löytyi, muuten false
+     */
     public Boolean columnHasBlackSquare(int column) {
         Boolean hasBlack = false;
-        
+
         for (int i = 0; i < height; i++) {
             String key = Integer.toString(column) + Integer.toString(i);
             if (rectangles.get(key).getFill() == Color.BLACK) {
                 hasBlack = true;
             }
         }
-        
+
         return hasBlack;
     }
-    
+
+    /**
+     * Metodi muuttaa ruudukon 'lukirusväreihin', eli mustat ruudut muuttuvat
+     * tummanharmaiksi sen merkiksi, että niisintä on lukittu.
+     */
     public void setLockedColors() {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {

@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * Tänne tulee käyttöliittymä
+ * Kudontasovelluksen graafisesta käyttöliittymästä vastaava luokka.
  */
 public class Ui extends Application {
 
@@ -31,14 +31,20 @@ public class Ui extends Application {
     private Boolean readyToWeave = false;
     private Boolean treadlesLocked = false;
     private Boolean heddlesLocked = false;
-    
+
     private Stage window;
 
     public Ui() {
     }
 
+    /**
+     * Metodi rakentaa graafisen kudontanäkymän valmiiksi määritellyille
+     * kangaspuille. Näkymä sisältää neljä erilaista ruudukkoa ja usita nappeja.
+     *
+     * @return Scene jossa on valmis kudontanäkymä toiminnallisuuksineen
+     */
     private Scene createWeaveScene() {
-        //Luodaan näkymä uudelle kudontamallille
+
         GridPane weaveLayout = new GridPane();
 
         weaveLayout.setPrefSize(800, 600);
@@ -128,7 +134,7 @@ public class Ui extends Application {
         weavingButtons.getChildren().add(undoButton);
 
         weaveLayout.add(weavingButtons, 1, 4);
-        
+
         HBox clearingButtons = new HBox();
         clearingButtons.setSpacing(30);
 
@@ -138,7 +144,7 @@ public class Ui extends Application {
             fabPane.visualizeFabric(this.loom.fabric);
             toPane.clear();
         });
-        
+
         clearingButtons.getChildren().add(clearButton);
         weaveLayout.add(clearingButtons, 1, 0);
 
@@ -151,14 +157,14 @@ public class Ui extends Application {
             this.heddlesLocked = false;
             this.window.setScene(createWeaveScene());
         });
-        
+
         clearingButtons.getChildren().add(clearAllButton);
-        
+
         Button newModelButton = new Button("Uusi malli");
         newModelButton.setOnAction((event) -> {
             this.window.setScene(createCustomScene());
         });
-        
+
         clearingButtons.getChildren().add(newModelButton);
 
         Scene weaveScene = new Scene(weaveLayout);
@@ -166,6 +172,13 @@ public class Ui extends Application {
         return weaveScene;
     }
 
+    /**
+     * Rakentaa graafisen näkymän, jossa voi konfiguroida käytettävät
+     * kangaspuut. Scenen toiminnallisuuksiin kuuluu kaksi slideria, joilla voi
+     * määritellä niisivastien ja polkusten lukumäärän välillä 4-8.
+     *
+     * @return Scene, joka sisältää valmiin näkymän toiminnallisuuksineen
+     */
     private Scene createCustomScene() {
         //Luodaan näkymä uudelle kudontamallille itse määritellyillä kangaspuilla
         GridPane layout = new GridPane();
@@ -217,9 +230,13 @@ public class Ui extends Application {
         Scene customizeScene = new Scene(layout);
         return customizeScene;
     }
-    
 
-
+    /**
+     * Metodi käynnistää käyttöliittymän ja luo sovelluksen aloitusnäkymän.
+     *
+     * @param window
+     * @throws Exception
+     */
     @Override
     public void start(Stage window) throws Exception {
         this.window = window;

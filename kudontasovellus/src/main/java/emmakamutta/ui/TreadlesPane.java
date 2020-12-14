@@ -9,17 +9,29 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- *
+ * Luokka kuvaa polkusten sidontaa graafisena ruudukkona osana käyttöliittymää.
+ * Perii JavaFX-luokan GridPane.
  *
  */
 public class TreadlesPane extends GridPane {
 
     private int squareSize;
+    /**
+     * Oliomuuttuja kuvaa sitä, saako polkusten sidontaan tehdä muutoksia.
+     */
     private boolean modifiable;
     private HashMap<String, Rectangle> rectangles;
     private int height;
     private int width;
 
+    /**
+     * Luokan TreadlesPane konstruktori. Alustaa polkusten sidonnan täysin
+     * valkoisena ruudukkona, johon sidonnan voi määritellä klikkaamalla
+     * ruutuja. Muutoksen voi peruuttaa klikkaamalla ruutua uudelleen.
+     *
+     * @param loom kangaspuut, joiden polkusten sidontaa halutaan esittää
+     * @param squareSize ruudukon ruudun sivun pituus
+     */
     public TreadlesPane(Loom loom, int squareSize) {
         this.squareSize = squareSize;
         this.modifiable = true;
@@ -53,6 +65,12 @@ public class TreadlesPane extends GridPane {
         }
     }
 
+    /**
+     * Metodi muuntaa graafisen TreadlesPane-olion luokalle Loom sopivaksi
+     * UniversalGrid-olioksi, joka vastaa graafista polkusten sidontaa.
+     *
+     * @return UniversalGrid, joka vastaa määriteltyä polkusten sidontaa.
+     */
     public Grid convertToTreadles() {
         int[][] grid = new int[height][width];
 
@@ -71,10 +89,19 @@ public class TreadlesPane extends GridPane {
         return tre;
     }
 
+    /**
+     * Muuttaa oliomuuttujan modifiable parametrina annetuksi totuusarvoksi.
+     * 
+     * @param modifiable haluttu totuusarvo
+     */
     public void setModifiable(boolean modifiable) {
         this.modifiable = modifiable;
     }
 
+    /**
+     * Metodi muuttaa ruudukon 'lukirusväreihin', eli mustat ruudut muuttuvat
+     * tummanharmaiksi sen merkiksi, että niisintä on lukittu.
+     */
     public void setLockedColors() {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {

@@ -7,17 +7,27 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- *
+ * Luokka kuvaa graafisesti poljentajärjestystä. Perii JavaFx-luokan GridPane.
  *
  */
 public class TreadOrderPane extends GridPane {
 
     private int squareSize;
+    /**
+     * Oliomuuttuja kertoo, kuinka monta riviä on kudottu.
+     */
     private int weaved;
     private HashMap<String, Rectangle> rectangles;
     private int length;
     private int width;
 
+    /**
+     * Luokan TreadOrderPane konstruktori. Alustaa tyhjän valkoisen ruudukon
+     * kokoa kankaan leveys*polkusten lkm.
+     *
+     * @param loom käytettävät kangaspuut
+     * @param squareSize yksittäisen ruudun sivun pituus
+     */
     public TreadOrderPane(Loom loom, int squareSize) {
         this.squareSize = squareSize;
         this.rectangles = new HashMap<>();
@@ -38,6 +48,11 @@ public class TreadOrderPane extends GridPane {
         }
     }
 
+    /**
+     * Metodi visualisoi ruudukkoon sen, mitä polkusta painettiin.
+     *
+     * @param treadle painetun polkusen nro
+     */
     public void visualize(int treadle) {
         if (weaved >= length) {
             return;
@@ -46,6 +61,13 @@ public class TreadOrderPane extends GridPane {
         weaved++;
     }
 
+    /**
+     * Metodi muuttaa yksittäisen ruudun värin halutuksi.
+     * 
+     * @param x ruudun x-koordinaatti
+     * @param y ruudun y-koordinaatti
+     * @param color haluttu väri
+     */
     private void changeRecColor(int x, int y, Color color) {
         String key = Integer.toString(x) + Integer.toString(y);
         if (rectangles.containsKey(key)) {
@@ -54,6 +76,9 @@ public class TreadOrderPane extends GridPane {
 
     }
 
+    /**
+     * Metodi tyhjentää viimeisimmän visualisoidun rivin.
+     */
     public void clearLatestRow() {
         if (weaved > 0) {
 
@@ -65,6 +90,9 @@ public class TreadOrderPane extends GridPane {
         }
     }
 
+    /**
+     * Metodi tyhjentää koko ruudukon. 
+     */
     public void clear() {
         for (int i = 0; i < this.width; i++) {
             for (int j = 0; j < this.length; j++) {

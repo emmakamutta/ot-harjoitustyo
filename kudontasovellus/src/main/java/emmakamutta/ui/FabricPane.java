@@ -9,16 +9,27 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- *
+ * Luokka kuvaa kangasta graafisena ruudukkona. Luokka kuuluu käyttöliittymän
+ * olioihin. Perii JavaFX-luokan GridPane.
  *
  */
 public class FabricPane extends GridPane {
 
     private int squareSize;
+    /**
+     * Oliomuuttuja kuvaa kuinka monta ruutua pitkä ja leveä ruudukko on.
+     */
     private int length;
 
     public HashMap<String, Rectangle> rectangles;
 
+    /**
+     * Luokan FabricPane konstruktori. Alustaa kankaan tyhjäksi bvalkoiseksi
+     * ruudukoksi.
+     *
+     * @param loom käytettävissä olevat kangaspuut
+     * @param squareSize yhden ruudun sivun pituus
+     */
     public FabricPane(Loom loom, int squareSize) {
         this.squareSize = squareSize;
         this.length = loom.fabricWidth;
@@ -31,7 +42,7 @@ public class FabricPane extends GridPane {
                 rec.setFill(Color.WHITE);
 
                 String key = Integer.toString(i) + "," + Integer.toString(j);
-                
+
                 rectangles.put(key, rec);
 
                 add(rec, i, j);
@@ -39,6 +50,12 @@ public class FabricPane extends GridPane {
         }
     }
 
+    /**
+     * Metodi esittää sovelluslogiikan luokan Fabric olion graafisena
+     * FabricPane-oliona.
+     *
+     * @param fabric Fabric-olio, joka kuvaaa visualisoitavaa kangasta
+     */
     public void visualizeFabric(Fabric fabric) {
 
         for (int i = 0; i < length; i++) {
@@ -52,13 +69,18 @@ public class FabricPane extends GridPane {
         }
     }
 
+    /**
+     * Metodi muuttaa yksittäisen ruudun värin halutuksi.
+     * 
+     * @param x ruudun x-koordinaatti
+     * @param y ruudun y-koordinaatti
+     * @param color haluttu väri
+     */
     public void changeRecColor(int x, int y, Color color) {
         String key = Integer.toString(x) + "," + Integer.toString(y);
-        
 
         rectangles.get(key).setFill(color);
 
     }
-    
 
 }
