@@ -71,7 +71,7 @@ public class FabricPane extends GridPane {
 
     /**
      * Metodi muuttaa yksittäisen ruudun värin halutuksi.
-     * 
+     *
      * @param x ruudun x-koordinaatti
      * @param y ruudun y-koordinaatti
      * @param color haluttu väri

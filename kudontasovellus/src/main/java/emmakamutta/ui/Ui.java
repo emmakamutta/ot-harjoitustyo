@@ -53,18 +53,18 @@ public class Ui extends Application {
         weaveLayout.setHgap(20);
         weaveLayout.setPadding(new Insets(20, 20, 20, 20));
 
-        TreadlesPane treadPane = new TreadlesPane(loom, SQUARE_SIZE);
-        FabricPane fabPane = new FabricPane(loom, SQUARE_SIZE);
-        HeddlesPane hedPane = new HeddlesPane(loom, SQUARE_SIZE);
-        TreadOrderPane toPane = new TreadOrderPane(loom, SQUARE_SIZE);
+        TreadlesPane treadlesPane = new TreadlesPane(loom, SQUARE_SIZE);
+        FabricPane fabricPane = new FabricPane(loom, SQUARE_SIZE);
+        HeddlesPane heddlesPane = new HeddlesPane(loom, SQUARE_SIZE);
+        TreadOrderPane treadOrderPane = new TreadOrderPane(loom, SQUARE_SIZE);
 
-        weaveLayout.add(fabPane, 1, 1);
-        weaveLayout.add(toPane, 2, 1);
-        weaveLayout.add(hedPane, 1, 2);
-        weaveLayout.add(treadPane, 2, 2);
+        weaveLayout.add(fabricPane, 1, 1);
+        weaveLayout.add(treadOrderPane, 2, 1);
+        weaveLayout.add(heddlesPane, 1, 2);
+        weaveLayout.add(treadlesPane, 2, 2);
 
-        fabPane.setRotate(180);
-        hedPane.setRotate(180);
+        fabricPane.setRotate(180);
+        heddlesPane.setRotate(180);
 
         Button confirmTreadles = new Button("Lukitse sidonta");
         Button confirmHeddles = new Button("Lukitse niisintä");
@@ -73,23 +73,23 @@ public class Ui extends Application {
         weaveLayout.add(confirmHeddles, 1, 3);
 
         confirmTreadles.setOnAction((event) -> {
-            treadPane.setModifiable(false);
-            loom.setTreadles(treadPane.convertToTreadles());
+            treadlesPane.setModifiable(false);
+            loom.setTreadles(treadlesPane.convertToTreadles());
             this.treadlesLocked = true;
             if (treadlesLocked && heddlesLocked) {
                 this.readyToWeave = true;
             }
-            treadPane.setLockedColors();
+            treadlesPane.setLockedColors();
         });
 
         confirmHeddles.setOnAction((event) -> {
-            hedPane.setModifiable(false);
-            loom.setHeddles(hedPane.convertToHeddles());
+            heddlesPane.setModifiable(false);
+            loom.setHeddles(heddlesPane.convertToHeddles());
             this.heddlesLocked = true;
             if (treadlesLocked && heddlesLocked) {
                 this.readyToWeave = true;
             }
-            hedPane.setLockedColors();
+            heddlesPane.setLockedColors();
         });
 
         HBox weavingButtons = new HBox();
@@ -104,8 +104,8 @@ public class Ui extends Application {
                 if (readyToWeave) {
 
                     this.loom.weave(buttonNmbr);
-                    fabPane.visualizeFabric(this.loom.fabric);
-                    toPane.visualize(buttonNmbr);
+                    fabricPane.visualizeFabric(this.loom.fabric);
+                    treadOrderPane.visualize(buttonNmbr);
                 } else {
                     Alert notReadyAlert = new Alert(AlertType.ERROR);
                     notReadyAlert.setTitle("Virhe");
@@ -126,8 +126,8 @@ public class Ui extends Application {
             if (this.loom.fabric.weavedRows > 0) {
 
                 this.loom.undo();
-                fabPane.visualizeFabric(this.loom.fabric);
-                toPane.clearLatestRow();
+                fabricPane.visualizeFabric(this.loom.fabric);
+                treadOrderPane.clearLatestRow();
             }
         });
 
@@ -141,8 +141,8 @@ public class Ui extends Application {
         Button clearButton = new Button("Tyhjennä kangas");
         clearButton.setOnAction((event) -> {
             this.loom.fabric = new Fabric(this.loom.fabricWidth);
-            fabPane.visualizeFabric(this.loom.fabric);
-            toPane.clear();
+            fabricPane.visualizeFabric(this.loom.fabric);
+            treadOrderPane.clear();
         });
 
         clearingButtons.getChildren().add(clearButton);
@@ -162,7 +162,7 @@ public class Ui extends Application {
 
         Button newModelButton = new Button("Uusi malli");
         newModelButton.setOnAction((event) -> {
-            this.window.setScene(createCustomScene());
+            this.window.setScene(createCustomizeScene());
         });
 
         clearingButtons.getChildren().add(newModelButton);
@@ -179,8 +179,8 @@ public class Ui extends Application {
      *
      * @return Scene, joka sisältää valmiin näkymän toiminnallisuuksineen
      */
-    private Scene createCustomScene() {
-        //Luodaan näkymä uudelle kudontamallille itse määritellyillä kangaspuilla
+    private Scene createCustomizeScene() {
+
         GridPane layout = new GridPane();
         layout.setPrefSize(300, 300);
         layout.setAlignment(Pos.CENTER);
@@ -232,7 +232,8 @@ public class Ui extends Application {
     }
 
     /**
-     * Metodi käynnistää käyttöliittymän ja luo sovelluksen aloitusnäkymän.
+     * Metodi käynnistää käyttöliittymän ja asettaa ensin näkyville
+     * tervetulonäkymän.
      *
      * @param window
      * @throws Exception
@@ -242,29 +243,31 @@ public class Ui extends Application {
         this.window = window;
         window.setTitle("Kudontasovellus");
 
-        //Luodaan ensin tervetulonäkymä
+        createWelcomeScene();
+        window.show();
+    }
+
+    /**
+     * Metodi luo käyttöliittymän tervetulonäkymän.
+     */
+    private void createWelcomeScene() {
+
         GridPane layout = new GridPane();
         VBox menu = new VBox();
         menu.setSpacing(10);
         Button createButton = new Button("Uusi kudontamalli");
-
         menu.getChildren().addAll(createButton);
         layout.add(menu, 1, 1);
-
         layout.setPrefSize(300, 180);
         layout.setAlignment(Pos.CENTER);
         layout.setVgap(10);
         layout.setHgap(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
-
         Scene welcome = new Scene(layout);
-
         createButton.setOnAction((event) -> {
-            this.window.setScene(createCustomScene());
+            this.window.setScene(createCustomizeScene());
         });
-
-        window.setScene(welcome);
-        window.show();
+        this.window.setScene(welcome);
     }
 
     public static void main(String[] args) {

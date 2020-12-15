@@ -11,9 +11,9 @@ public class Heddles extends UniversalGrid {
      *
      * @param shafts niisivarsien lukumäärä
      * @param columns sarakkeiden lukumäärä (sama kuin kankaan leveys)
-     * 
+     *
      * @see emmakamutta.domain.UniversalGrid#UniversalGrid(int,int)
-     * 
+     *
      */
     public Heddles(int shafts, int columns) {
         super(shafts, columns);

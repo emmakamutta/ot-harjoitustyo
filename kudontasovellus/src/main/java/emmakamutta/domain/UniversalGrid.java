@@ -25,7 +25,9 @@ public class UniversalGrid implements Grid {
     }
 
     /**
-     *KOnstruktori, joka luo uuden UniversalGrid olion valmiista int[][] ruudukosta.
+     * Konstruktori, joka luo uuden UniversalGrid olion valmiista int[][]
+     * ruudukosta.
+     *
      * @param grid
      */
     public UniversalGrid(int[][] grid) {
@@ -57,6 +59,7 @@ public class UniversalGrid implements Grid {
 
     /**
      * Metodi hakee ja palauttaa halutun rivin ruudukosta.
+     *
      * @param rowNmbr rivin numero
      * @return haluttu rivi
      */

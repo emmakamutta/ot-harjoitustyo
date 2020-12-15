@@ -91,7 +91,7 @@ public class TreadlesPane extends GridPane {
 
     /**
      * Muuttaa oliomuuttujan modifiable parametrina annetuksi totuusarvoksi.
-     * 
+     *
      * @param modifiable haluttu totuusarvo
      */
     public void setModifiable(boolean modifiable) {
@@ -100,7 +100,7 @@ public class TreadlesPane extends GridPane {
 
     /**
      * Metodi muuttaa ruudukon 'lukirusväreihin', eli mustat ruudut muuttuvat
-     * tummanharmaiksi sen merkiksi, että niisintä on lukittu.
+     * tummanharmaiksi sen merkiksi, että polkusten sidonta on lukittu.
      */
     public void setLockedColors() {
         for (int i = 0; i < height; i++) {

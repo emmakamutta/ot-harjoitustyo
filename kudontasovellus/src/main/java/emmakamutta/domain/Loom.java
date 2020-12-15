@@ -108,7 +108,7 @@ public class Loom {
     }
 
     /**
-     * Metodi kuvaa viimeisimmän kudotun rivin purkamista. Purkaminen onnistuu 
+     * Metodi kuvaa viimeisimmän kudotun rivin purkamista. Purkaminen onnistuu
      * vain, jos jotakin on jo kudottu.
      */
     public void undo() {

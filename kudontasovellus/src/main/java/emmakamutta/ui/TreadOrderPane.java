@@ -63,7 +63,7 @@ public class TreadOrderPane extends GridPane {
 
     /**
      * Metodi muuttaa yksittäisen ruudun värin halutuksi.
-     * 
+     *
      * @param x ruudun x-koordinaatti
      * @param y ruudun y-koordinaatti
      * @param color haluttu väri
@@ -91,7 +91,7 @@ public class TreadOrderPane extends GridPane {
     }
 
     /**
-     * Metodi tyhjentää koko ruudukon. 
+     * Metodi tyhjentää koko ruudukon.
      */
     public void clear() {
         for (int i = 0; i < this.width; i++) {
