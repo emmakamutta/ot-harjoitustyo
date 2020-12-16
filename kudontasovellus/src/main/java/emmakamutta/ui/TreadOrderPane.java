@@ -12,14 +12,14 @@ import javafx.scene.shape.Rectangle;
  */
 public class TreadOrderPane extends GridPane {
 
-    private int squareSize;
+    private final int squareSize;
     /**
      * Oliomuuttuja kertoo, kuinka monta riviä on kudottu.
      */
     private int weaved;
     private HashMap<String, Rectangle> rectangles;
-    private int length;
-    private int width;
+    private final int length;
+    private final int width;
 
     /**
      * Luokan TreadOrderPane konstruktori. Alustaa tyhjän valkoisen ruudukon

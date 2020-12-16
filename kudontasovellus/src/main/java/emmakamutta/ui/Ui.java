@@ -1,22 +1,14 @@
 package emmakamutta.ui;
 
 import emmakamutta.domain.Fabric;
-import emmakamutta.domain.Grid;
 import emmakamutta.domain.Loom;
-import emmakamutta.domain.UniversalGrid;
-import java.util.HashMap;
 import javafx.application.Application;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**

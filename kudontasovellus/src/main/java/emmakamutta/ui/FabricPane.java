@@ -3,7 +3,6 @@ package emmakamutta.ui;
 import emmakamutta.domain.Fabric;
 import emmakamutta.domain.Loom;
 import java.util.HashMap;
-import java.util.TreeMap;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -15,11 +14,11 @@ import javafx.scene.shape.Rectangle;
  */
 public class FabricPane extends GridPane {
 
-    private int squareSize;
+    private final int squareSize;
     /**
      * Oliomuuttuja kuvaa kuinka monta ruutua pitkä ja leveä ruudukko on.
      */
-    private int length;
+    private final int length;
 
     public HashMap<String, Rectangle> rectangles;
 

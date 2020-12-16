@@ -15,9 +15,9 @@ import javafx.scene.shape.Rectangle;
  */
 public class HeddlesPane extends GridPane {
 
-    private int squareSize;
-    private int height;
-    private int width;
+    private final int squareSize;
+    private final int height;
+    private final int width;
     /**
      * Oliomuuttuja kertoo sallitaanko niisintään muutoksia.
      */

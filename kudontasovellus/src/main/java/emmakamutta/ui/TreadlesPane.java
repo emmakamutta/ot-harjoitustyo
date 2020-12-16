@@ -15,14 +15,14 @@ import javafx.scene.shape.Rectangle;
  */
 public class TreadlesPane extends GridPane {
 
-    private int squareSize;
+    private final int squareSize;
     /**
      * Oliomuuttuja kuvaa sitä, saako polkusten sidontaan tehdä muutoksia.
      */
     private boolean modifiable;
     private HashMap<String, Rectangle> rectangles;
-    private int height;
-    private int width;
+    private final int height;
+    private final int width;
 
     /**
      * Luokan TreadlesPane konstruktori. Alustaa polkusten sidonnan täysin
