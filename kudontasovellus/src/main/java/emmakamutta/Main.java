@@ -1,6 +1,5 @@
 package emmakamutta;
 
-import emmakamutta.domain.*;
 import emmakamutta.ui.Ui;
 
 public class Main {

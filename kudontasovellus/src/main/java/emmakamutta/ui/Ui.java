@@ -2,14 +2,20 @@ package emmakamutta.ui;
 
 import emmakamutta.domain.Fabric;
 import emmakamutta.domain.Loom;
+import java.io.File;
+import java.io.IOException;
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -38,6 +44,7 @@ public class Ui extends Application {
     private Scene createWeaveScene() {
 
         GridPane weaveLayout = new GridPane();
+        Scene weaveScene = new Scene(weaveLayout);
 
         weaveLayout.setPrefSize(800, 600);
         weaveLayout.setAlignment(Pos.TOP_LEFT);
@@ -127,9 +134,24 @@ public class Ui extends Application {
 
         weaveLayout.add(weavingButtons, 1, 4);
 
-        HBox clearingButtons = new HBox();
-        clearingButtons.setSpacing(30);
+        HBox controlButtons = createControlButtons(fabricPane, treadOrderPane, weaveScene);;
+        weaveLayout.add(controlButtons, 1, 0);
 
+        return weaveScene;
+    }
+
+    /**
+     * Metodi luo käyttöliittymää varten tarvittavat hallintanappulat.
+     *
+     * @param fabricPane käyttöliittymän kangasta esittävä FabricPane
+     * @param treadOrderPane käyttöliittymän poljentajärjestystä kuvaava
+     * TreadOrderPane
+     * @param layout Scene, johon palautettava HBox sijoitetaan
+     * @return HBox, joka sisältää tarvittavat nappulat toiminnallisuuksineen
+     */
+    private HBox createControlButtons(FabricPane fabricPane, TreadOrderPane treadOrderPane, Scene scene) {
+        HBox controlButtons = new HBox();
+        controlButtons.setSpacing(30);
         Button clearButton = new Button("Tyhjennä kangas");
         clearButton.setOnAction((event) -> {
             this.loom.fabric = new Fabric(this.loom.fabricWidth);
@@ -137,8 +159,7 @@ public class Ui extends Application {
             treadOrderPane.clear();
         });
 
-        clearingButtons.getChildren().add(clearButton);
-        weaveLayout.add(clearingButtons, 1, 0);
+        controlButtons.getChildren().add(clearButton);
 
         Button clearAllButton = new Button("Tyhjennä kaikki");
         clearAllButton.setOnAction((event) -> {
@@ -150,22 +171,51 @@ public class Ui extends Application {
             this.window.setScene(createWeaveScene());
         });
 
-        clearingButtons.getChildren().add(clearAllButton);
+        controlButtons.getChildren().add(clearAllButton);
 
         Button newModelButton = new Button("Uusi malli");
         newModelButton.setOnAction((event) -> {
             this.window.setScene(createCustomizeScene());
         });
 
-        clearingButtons.getChildren().add(newModelButton);
+        controlButtons.getChildren().add(newModelButton);
 
-        Scene weaveScene = new Scene(weaveLayout);
+        Button saveButton = new Button("Tallenna kuvana");
+        saveButton.setOnAction((event) -> {
+            saveAsImage(scene);
+        });
 
-        return weaveScene;
+        controlButtons.getChildren().add(saveButton);
+        return controlButtons;
     }
 
     /**
-     * Rakentaa graafisen näkymän, jossa voi konfiguroida käytettävät
+     * Metodi toteuttaa toiminnallisuuden, jolla käyttäjä voi tallentaa sovelluksen
+     * näkymän haluamaansa paikalliseen kansioon tietokoneellaan.
+     *
+     * @param scene näkymä, joka tallennetaan
+     */
+    private void saveAsImage(Scene scene) {
+        WritableImage image = scene.snapshot(null);
+        FileChooser fileChooser1 = new FileChooser();
+        fileChooser1.setTitle("Tallenna kuvana");
+
+        FileChooser.ExtensionFilter pngFilter = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png");
+        fileChooser1.getExtensionFilters().add(pngFilter);
+        FileChooser.ExtensionFilter jpegFilter = new FileChooser.ExtensionFilter("jpeg files (*.jpeg)", "*.jpeg");
+        fileChooser1.getExtensionFilters().add(jpegFilter);
+        File file = fileChooser1.showSaveDialog(this.window);
+        if (file != null) {
+            try {
+                ImageIO.write(SwingFXUtils.fromFXImage(image,
+                        null), "PNG", file);
+            } catch (IOException ex) {
+            }
+        }
+    }
+
+    /**
+     * Metodi rakentaa graafisen näkymän, jossa voi konfiguroida käytettävät
      * kangaspuut. Scenen toiminnallisuuksiin kuuluu kaksi slideria, joilla voi
      * määritellä niisivastien ja polkusten lukumäärän välillä 4-8.
      *
@@ -265,4 +315,5 @@ public class Ui extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
