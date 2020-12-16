@@ -191,7 +191,7 @@ public class Ui extends Application {
 
     /**
      * Metodi toteuttaa toiminnallisuuden, jolla käyttäjä voi tallentaa sovelluksen
-     * näkymän haluamaansa paikalliseen kansioon tietokoneellaan.
+     * näkymän haluamaansa paikalliseen kansioon tietokoneellaan png-kuvana.
      *
      * @param scene näkymä, joka tallennetaan
      */
@@ -202,8 +202,6 @@ public class Ui extends Application {
 
         FileChooser.ExtensionFilter pngFilter = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png");
         fileChooser1.getExtensionFilters().add(pngFilter);
-        FileChooser.ExtensionFilter jpegFilter = new FileChooser.ExtensionFilter("jpeg files (*.jpeg)", "*.jpeg");
-        fileChooser1.getExtensionFilters().add(jpegFilter);
         File file = fileChooser1.showSaveDialog(this.window);
         if (file != null) {
             try {
