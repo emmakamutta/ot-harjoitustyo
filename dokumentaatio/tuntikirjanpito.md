@@ -25,4 +25,5 @@
 |       | 0,5  | Testauksen parantelua |
 |14.12. | 2    | Käyttöliittymän parantelua ja debuggausta |
 |       | 1    | JavaDocin täydennystä |
-| yht.  | 48   | | 
+|       | 1    | Refaktorointia     |
+| yht.  | 49   | | 
