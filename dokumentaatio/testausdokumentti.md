@@ -4,8 +4,8 @@ Sovellusta on testattu niin automaattisesti JUnitin avulla, kuin manuaalisesti k
 
 ## Sovelluslogiikka
 
-Sovelluksen sovelluslogiikkaa on testattu automaattisesti testipakkauksen sisältä löytyvillä testiluokilla JUnitin avulla. Kaikki testiluokat löytyvät testipakkauksen domain sisältä. Testiluokat *FabricTest*, *HeddlesTest* ja *UniversalGridTest* testaavat vastaavien sovelluslogiikan luokkien sisäistä toimintaa. 
-Koska luokka *Loom* kokoaa eri sovelluslogiikan olioita yhteen, testaa sen testiluokka *LoomTest* myös muiden sovelluslogiikan luokkien toimintaa yhdessä luokan *Loom* testaamisen kanssa. Tämän lisäksi testiluokka *EverythingTogetherTest* testaa koko sovelluslogiikan toimintaa yhdessä. 
+Sovelluksen sovelluslogiikkaa on testattu automaattisesti testipakkauksen sisältä löytyvillä testiluokilla JUnitin avulla. Kaikki testiluokat löytyvät testipakkauksen [*domain*](https://github.com/emmakamutta/ot-harjoitustyo/tree/master/kudontasovellus/src/test/java/domain) sisältä. Testiluokat [*FabricTest*](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/test/java/domain/FabricTest.java), [*HeddlesTest*](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/test/java/domain/HeddlesTest.java) ja [*UniversalGridTest*](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/test/java/domain/UniversalGridTest.java) testaavat vastaavien sovelluslogiikan luokkien sisäistä toimintaa. 
+Koska luokka [*Loom*](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/main/java/emmakamutta/domain/Loom.java) kokoaa eri sovelluslogiikan olioita yhteen, testaa sen testiluokka [*LoomTest*](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/test/java/domain/LoomTest.java) myös muiden sovelluslogiikan luokkien toimintaa yhdessä luokan *Loom* testaamisen kanssa. Tämän lisäksi testiluokka [*EverythingTogetherTest*](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/test/java/domain/EverythingTogetherTest.java) testaa koko sovelluslogiikan toimintaa yhdessä. 
 
 ## Testikattavuus
 
