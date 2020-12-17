@@ -9,7 +9,7 @@ Koska luokka *Loom* kokoaa eri sovelluslogiikan olioita yhteen, testaa sen testi
 
 ## Testikattavuus
 
-![testikattavuskuva]()
+![testikattavuskuva](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/testikattavuuskuva.png)
 
 Testauksen rivikattavuus on 100% ja haaraumakattavuus 92%. Haaraumakattavuudesta jäi testaamatta tapaukset, joissa luokan *Loom* metodeja *setHeddles* ja *setTreadles* kutsuttaisiin väärän kokoisilla ruudukoilla. 
 
