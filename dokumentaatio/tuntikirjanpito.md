@@ -26,4 +26,5 @@
 |14.12. | 2    | Käyttöliittymän parantelua ja debuggausta |
 |       | 1    | JavaDocin täydennystä |
 |       | 1    | Refaktorointia     |
-| yht.  | 49   | | 
+|16.12. | 3    | Käyttöliittymään lisätty mahdollisuus tallentaa |
+| yht.  | 52   | | 
