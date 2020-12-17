@@ -17,6 +17,6 @@ Käyttöliittymää ei ole otettu mukaan testikattavussraporttiin.
 
 ## Käyttöliittymä
 
-Käyttöliittymää on testattu manuaalisesti niin monella erilaisella skenaariolla, kuin testaaja on sattunut keksimäänkään. Kaikiki vaatimusmäärittelyssä ja käyttöohjeessa kuvattu toiminnallisuus on käyty läpi. Sovellusta on myös yritetty käyttää tahallaan virheellisesti.
+Käyttöliittymää on testattu manuaalisesti niin monella erilaisella skenaariolla, kuin testaaja on sattunut keksimäänkään. Kaikiki [vaatimusmäärittelyssä](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) ja [käyttöohjeessa](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md) kuvattu toiminnallisuus on käyty läpi. Sovellusta on myös yritetty käyttää tahallaan virheellisesti.
 
 Sovelluksen asennusta on kokeiltu Windows-järjestelmää käyttävällä koneella käyttöohjeen mukaisesti.
