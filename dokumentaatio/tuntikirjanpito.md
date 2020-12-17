@@ -28,4 +28,5 @@
 |       | 1    | Refaktorointia     |
 |16.12. | 3    | Käyttöliittymään lisätty mahdollisuus tallentaa |
 |17.12. | 1,5  | Käyttöliittymää jatkettu + refaktorointia |
-| yht.  | 53,5 | | 
+|       | 1    | Testauksen päivittämistä  |
+| yht.  | 54,5 | | 
