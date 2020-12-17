@@ -7,8 +7,14 @@ import java.util.*;
  */
 public class Loom {
 
-    public int shafts;           //niisivarsien lkm;
-    public int treadleAmount;    //polkusten lkm;
+    /**
+     * Kangaspuiden niisivarsien lukumäärä.
+     */
+    public int shafts;      
+    /**
+     * Kangaspuiden polkusten lukumäärä.
+     */
+    public int treadleAmount;    
     public int fabricWidth;
     public Grid heddles;
     public Grid treadles;
@@ -22,13 +28,13 @@ public class Loom {
      * @param shafts Niisivarsien lukumäärä
      * @param treadleamount Polkusten lukumäärä
      */
-    public Loom(int shafts, int treadleamount) {
+    public Loom(int shafts, int treadleamount, int fabricWidth) {
         this.shafts = shafts;
         this.treadleAmount = treadleamount;
-        this.fabricWidth = 20;
-        this.heddles = new Heddles(shafts, fabricWidth);
+        this.fabricWidth = fabricWidth;
+        this.heddles = new Heddles(shafts, this.fabricWidth);
         this.treadles = new UniversalGrid(shafts, treadleamount);
-        this.fabric = new Fabric(fabricWidth);
+        this.fabric = new Fabric(this.fabricWidth);
         this.weaveTreadles = new HashMap<>();
         this.treadOrder = new ArrayDeque<>();
     }

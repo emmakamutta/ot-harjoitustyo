@@ -23,7 +23,7 @@ import javax.imageio.ImageIO;
  */
 public class Ui extends Application {
 
-    private static final int SQUARE_SIZE = 25;
+    private int SQUARE_SIZE = 25;
 
     private Loom loom;
     private Boolean readyToWeave = false;
@@ -42,14 +42,17 @@ public class Ui extends Application {
      * @return Scene jossa on valmis kudontanäkymä toiminnallisuuksineen
      */
     private Scene createWeaveScene() {
+        
+        ScrollPane root = new ScrollPane();
 
         GridPane weaveLayout = new GridPane();
-        Scene weaveScene = new Scene(weaveLayout);
+        root.setContent(weaveLayout);
+        Scene weaveScene = new Scene(root);
 
         weaveLayout.setPrefSize(800, 600);
         weaveLayout.setAlignment(Pos.TOP_LEFT);
-        weaveLayout.setVgap(20);
-        weaveLayout.setHgap(20);
+        weaveLayout.setVgap(15);
+        weaveLayout.setHgap(15);
         weaveLayout.setPadding(new Insets(20, 20, 20, 20));
 
         TreadlesPane treadlesPane = new TreadlesPane(loom, SQUARE_SIZE);
@@ -163,7 +166,7 @@ public class Ui extends Application {
 
         Button clearAllButton = new Button("Tyhjennä kaikki");
         clearAllButton.setOnAction((event) -> {
-            Loom clearedLoom = new Loom(this.loom.shafts, this.loom.treadleAmount);
+            Loom clearedLoom = new Loom(this.loom.shafts, this.loom.treadleAmount, this.loom.fabricWidth);
             this.loom = clearedLoom;
             this.readyToWeave = false;
             this.treadlesLocked = false;
@@ -190,8 +193,9 @@ public class Ui extends Application {
     }
 
     /**
-     * Metodi toteuttaa toiminnallisuuden, jolla käyttäjä voi tallentaa sovelluksen
-     * näkymän haluamaansa paikalliseen kansioon tietokoneellaan png-kuvana.
+     * Metodi toteuttaa toiminnallisuuden, jolla käyttäjä voi tallentaa
+     * sovelluksen näkymän haluamaansa paikalliseen kansioon tietokoneellaan
+     * png-kuvana.
      *
      * @param scene näkymä, joka tallennetaan
      */
@@ -256,17 +260,33 @@ public class Ui extends Application {
         layout.add(new Label("Polkusia: "), 0, 3);
         layout.add(treadlesSlider, 1, 3);
 
-        this.loom = new Loom(3, 5);
+        Slider fabricSlider = new Slider();
+        fabricSlider.setMin(15);
+        fabricSlider.setMax(35);
+        fabricSlider.setValue(20);
+        fabricSlider.setShowTickLabels(true);
+        fabricSlider.setShowTickMarks(true);
+        fabricSlider.setMajorTickUnit(5);
+        fabricSlider.setMinorTickCount(0);
+        fabricSlider.setSnapToTicks(true);
+        fabricSlider.setBlockIncrement(5);
 
-        Button continueButton = new Button("Luo");
-        continueButton.setOnAction((event) -> {
+        layout.add(new Label("Kankaan leveys ruutuina: "), 0, 4);
+        layout.add(fabricSlider, 1, 4);
+
+        Button createButton = new Button("Luo");
+        createButton.setOnAction((event) -> {
             int shafts = (int) heddlesSlider.getValue();
             int treadles = (int) treadlesSlider.getValue();
-            this.loom = new Loom(shafts, treadles);
+            int fabricWidth = (int) fabricSlider.getValue();
+            this.loom = new Loom(shafts, treadles, fabricWidth);
+            if (fabricWidth >= 30) {
+                this.SQUARE_SIZE = 20;
+            }
             this.window.setScene(createWeaveScene());
         });
 
-        layout.add(continueButton, 1, 4);
+        layout.add(createButton, 1, 5);
         Scene customizeScene = new Scene(layout);
         return customizeScene;
     }
