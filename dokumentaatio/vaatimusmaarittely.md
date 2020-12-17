@@ -8,6 +8,10 @@ Malleja suunnitellaan määrittelemällä ensin polkusten sidonta omaan ruudukko
 Sitten käyttäjä voi painaa polkusia kuvaavia nappeja haluamassaan järjestyksessä, jolloin annettuun ruudukkoon tulee mallikuva siitä, millaista pintaa kutoessa tulisi. 
 Myös polkusten poljentajärjestys näytetään mallikuvan vieressä. Tallennettua kuvaa voi sitten käyttää ohjeena sidoksen tekemiseksi oikeita kangaspuita laitettaessa kudontavalmiiksi.
 
+## Kangaspuiden toiminnasta
+Tämä sovellus pyrkii kuvaamaan todellisten kangaspuiden toimintaa. Tässä on yksinkertainen [selitys](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kangaspuiden_toiminnasta.md) aiheeseen.
+
+
 ## Käyttöliittymäluonnos
 ![Käyttisluonnos kuva](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttisluonnos.png)
 
