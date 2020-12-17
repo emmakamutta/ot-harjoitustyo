@@ -20,7 +20,7 @@ public class FabricPane extends GridPane {
      */
     private final int length;
 
-    public HashMap<String, Rectangle> rectangles;
+    private HashMap<String, Rectangle> rectangles;
 
     /**
      * Luokan FabricPane konstruktori. Alustaa kankaan tyhjäksi bvalkoiseksi

@@ -5,8 +5,17 @@ package emmakamutta.domain;
  */
 public class UniversalGrid implements Grid {
 
+    /**
+     * Ruudukon korkeus.
+     */
     public int length;
+    /**
+     * Ruudukon leveys.
+     */
     public int width;
+    /**
+     * Ruudukko int-muodossa.
+     */
     public int[][] grid;
 
     public UniversalGrid() {

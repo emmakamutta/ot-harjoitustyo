@@ -3,7 +3,6 @@ package emmakamutta.ui;
 import emmakamutta.domain.Heddles;
 import emmakamutta.domain.Loom;
 import java.util.HashMap;
-import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

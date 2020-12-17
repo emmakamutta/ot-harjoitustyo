@@ -31,7 +31,9 @@ public class LoomTest {
         {0, 1, 0, 1},
         {1, 0, 1, 0}};
         UniversalGrid treadles = new UniversalGrid(ex2);
-        this.loom = new Loom(hed, treadles);
+        this.loom = new Loom(4, 4, 4);
+        this.loom.setHeddles(hed);
+        this.loom.setTreadles(treadles);
     }
 
     @Test(expected = IllegalArgumentException.class)

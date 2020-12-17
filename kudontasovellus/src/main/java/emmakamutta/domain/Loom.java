@@ -10,16 +10,35 @@ public class Loom {
     /**
      * Kangaspuiden niisivarsien lukumäärä.
      */
-    public int shafts;      
+    public int shafts;
     /**
      * Kangaspuiden polkusten lukumäärä.
      */
-    public int treadleAmount;    
+    public int treadleAmount;
+    /**
+     * Kankaan leveys ruutuina.
+     */
     public int fabricWidth;
+    /**
+     * Ruudukko, joka kuvaa niisintää.
+     */
     public Grid heddles;
+    /**
+     * Ruudukko, joka kuvaa polkusten sidontaa.
+     */
     public Grid treadles;
+    /**
+     * Ruudukko, joka kuvaa kangasta.
+     */
     public Fabric fabric;
+    /**
+     * HashMap, joka sisältää yhden rivin taulukkoina kutakin polkusta
+     * painamalla syntyvän kudotun rivin.
+     */
     public HashMap<Integer, int[]> weaveTreadles;
+    /**
+     * Jono, johon tallentuu polkusten polkemisjärjestys.
+     */
     public Deque<Integer> treadOrder;
 
     /**
@@ -27,6 +46,7 @@ public class Loom {
      *
      * @param shafts Niisivarsien lukumäärä
      * @param treadleamount Polkusten lukumäärä
+     * @param fabricWidth Kankaan leveys ruutuina
      */
     public Loom(int shafts, int treadleamount, int fabricWidth) {
         this.shafts = shafts;
@@ -39,22 +59,6 @@ public class Loom {
         this.treadOrder = new ArrayDeque<>();
     }
 
-    /**
-     * Luokan Loom konstruktori
-     *
-     * @param heddles Niisintää kuvaava Heddles-olio
-     * @param treadles Polkusten sidontaa kuvaava Grid-olio
-     */
-    public Loom(Heddles heddles, Grid treadles) {
-        this.heddles = heddles;
-        this.treadles = treadles;
-        this.shafts = heddles.getColumn(0).length;
-        this.fabricWidth = heddles.getRow(0).length;
-        this.treadleAmount = treadles.getRow(0).length;
-        this.fabric = new Fabric(fabricWidth);
-        this.weaveTreadles = new HashMap<>();
-        this.treadOrder = new ArrayDeque<>();
-    }
 
     /**
      * Metodi kuvaa yhden rivin kutomista kangaspuilla, kun parametrina annettu

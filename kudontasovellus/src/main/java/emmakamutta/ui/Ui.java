@@ -23,7 +23,7 @@ import javax.imageio.ImageIO;
  */
 public class Ui extends Application {
 
-    private int SQUARE_SIZE = 25;
+    private int squareSize = 25;
 
     private Loom loom;
     private Boolean readyToWeave = false;
@@ -44,21 +44,21 @@ public class Ui extends Application {
     private Scene createWeaveScene() {
         
         ScrollPane root = new ScrollPane();
+        root.setPrefSize(800, 800);
 
         GridPane weaveLayout = new GridPane();
         root.setContent(weaveLayout);
         Scene weaveScene = new Scene(root);
 
-        weaveLayout.setPrefSize(800, 600);
         weaveLayout.setAlignment(Pos.TOP_LEFT);
         weaveLayout.setVgap(15);
         weaveLayout.setHgap(15);
         weaveLayout.setPadding(new Insets(20, 20, 20, 20));
 
-        TreadlesPane treadlesPane = new TreadlesPane(loom, SQUARE_SIZE);
-        FabricPane fabricPane = new FabricPane(loom, SQUARE_SIZE);
-        HeddlesPane heddlesPane = new HeddlesPane(loom, SQUARE_SIZE);
-        TreadOrderPane treadOrderPane = new TreadOrderPane(loom, SQUARE_SIZE);
+        TreadlesPane treadlesPane = new TreadlesPane(loom, squareSize);
+        FabricPane fabricPane = new FabricPane(loom, squareSize);
+        HeddlesPane heddlesPane = new HeddlesPane(loom, squareSize);
+        TreadOrderPane treadOrderPane = new TreadOrderPane(loom, squareSize);
 
         weaveLayout.add(fabricPane, 1, 1);
         weaveLayout.add(treadOrderPane, 2, 1);
@@ -137,7 +137,7 @@ public class Ui extends Application {
 
         weaveLayout.add(weavingButtons, 1, 4);
 
-        HBox controlButtons = createControlButtons(fabricPane, treadOrderPane, weaveScene);;
+        HBox controlButtons = createControlButtons(fabricPane, treadOrderPane, weaveScene);
         weaveLayout.add(controlButtons, 1, 0);
 
         return weaveScene;
@@ -281,7 +281,7 @@ public class Ui extends Application {
             int fabricWidth = (int) fabricSlider.getValue();
             this.loom = new Loom(shafts, treadles, fabricWidth);
             if (fabricWidth >= 30) {
-                this.SQUARE_SIZE = 20;
+                this.squareSize = 20;
             }
             this.window.setScene(createWeaveScene());
         });
