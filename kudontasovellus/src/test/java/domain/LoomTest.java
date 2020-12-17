@@ -99,5 +99,19 @@ public class LoomTest {
         assertEquals("01", s);
 
     }
+    
+    @Test
+    public void cantUndoWhenTheresNothingLeft() {
+        loom.weave(2);
+        loom.weave(1);
+        
+        loom.undo();
+        loom.undo();
+        loom.undo();
+        
+        int[] empty = new int[4];
+        Assert.assertArrayEquals(empty, loom.fabric.getRow(0));
+        Assert.assertArrayEquals(empty, loom.fabric.getRow(1));
+    }
 
 }

@@ -59,7 +59,6 @@ public class Loom {
         this.treadOrder = new ArrayDeque<>();
     }
 
-
     /**
      * Metodi kuvaa yhden rivin kutomista kangaspuilla, kun parametrina annettu
      * polkunen on painettuna. Jos kyseistä polkusta on poljettu aiemminkin,
@@ -109,12 +108,29 @@ public class Loom {
         return weavedRow;
     }
 
+    /**
+     * Metodi asettaa valmiin Heddles olion kangaspuiden niisinnäksi. Tämä on
+     * mahdollista vain, jos valmiissa niisinnässä on käytetty yhtä montaa
+     * niisivartta, kuin kangaspuilla on käytössä.
+     *
+     * @param heddles valmis niisintä Heddles-oliona
+     */
     public void setHeddles(Heddles heddles) {
-        this.heddles = heddles;
+        if (heddles.length == this.shafts) {
+            this.heddles = heddles;
+        }
     }
 
+    /**
+     * Metodi asettaa valmiin ruudukon kangaspuiden polkusten sidonnaksi.
+     * Ruudukon täytyy olla samankokoinen, kuin kangaspuihin on määritelty.
+     *
+     * @param treadles valmis polkusten sidonta Grid-rajapinnan toteuttavana ruudukkona.
+     */
     public void setTreadles(Grid treadles) {
-        this.treadles = treadles;
+        if (treadles.getRow(0).length == this.treadleAmount && treadles.getColumn(0).length == this.shafts) {
+            this.treadles = treadles;
+        }
     }
 
     /**
