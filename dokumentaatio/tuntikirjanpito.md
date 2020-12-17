@@ -27,4 +27,5 @@
 |       | 1    | JavaDocin täydennystä |
 |       | 1    | Refaktorointia     |
 |16.12. | 3    | Käyttöliittymään lisätty mahdollisuus tallentaa |
-| yht.  | 52   | | 
+|17.12. | 1,5  | Käyttöliittymää jatkettu + refaktorointia |
+| yht.  | 53,5 | | 
