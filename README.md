@@ -8,6 +8,7 @@ Kudottua pintaa voi mallintaa kokeilemalla erilaisia polkemisjärjestyksiä ja s
 
 * [release 1 (vko 5)](https://github.com/emmakamutta/ot-harjoitustyo/releases/tag/viikko5)
 * [release 2 (vko 6)](https://github.com/emmakamutta/ot-harjoitustyo/releases/tag/Viikko6)
+* [Loppupalautus](https://github.com/emmakamutta/ot-harjoitustyo/releases/tag/palautus)
 
 ### Dokumentaatio
 
