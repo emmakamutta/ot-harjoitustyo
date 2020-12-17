@@ -13,8 +13,9 @@ Kudottua pintaa voi mallintaa kokeilemalla erilaisia polkemisjärjestyksiä ja s
 ### Dokumentaatio
 
 * [käyttöohje](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
-* [arkkitehtuuri](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 * [vaatimusmäärittely](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+* [arkkitehtuuri](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+* [testausdokumentti](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
 * [tuntikirjanpito](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 
