@@ -30,4 +30,5 @@
 |17.12. | 1,5  | Käyttöliittymää jatkettu + refaktorointia |
 |       | 1    | Testauksen päivittämistä  |
 |       | 1    | Vaatimusmäärittely päivitetty ajantasalle |
-| yht.  | 55,5 | | 
+|       | 0,5  | Testausdokumentti laadittu |
+| yht.  | 56   | | 

@@ -1,5 +1,8 @@
 # Käyttöohje
 
+## Asennus
+Lataa tiedosto [kudontasovellus.jar](https://github.com/emmakamutta/ot-harjoitustyo/releases/tag/palautus)
+
 ## Uusi kudontamalli
 Painamalla "Uusi kudontamalli" -nappia sovelluksen alkunäkymästä voidaan aloittaa uuden mallin luominen. 
 ![uusi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/aloitusnakyma.png)
