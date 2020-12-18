@@ -21,7 +21,7 @@ Käyttöliittymä on pyritty eriyttämään sovelluslogiikasta. Se kutsuukin lä
 
 Käyttöliittymän kudontanäkymä pohjautuu pitkälti neljään erilaiseen ruudukkoon ja useisiin nappeihin. Kunkin ruudukon toiminnasta vastaa oma luokkansa. Ne löytyvät pakkauksesta emmakamutta.ui. Jokainen näistä luokista perii valmiin JavaFX luokan GridPane, sillä sen päälle oli hyvä rakentaa ruudukoitten erityisempiä toiminnallisuuksia. 
 
-Tässä sovelluksessa tallentaminen on myös toteutettu osana käyttöliittymää, sillä tallentaminen on toteutettu vain png-kuvana käyttöliittymänäkymästä. Siitä siis vastaa luokan emmakamutta.ui.Ui metodi ***saveAsImage(Scene)*** Tallennus on toteutettu käyttämällä javafx.stage oliota FileChooser ja ulkoista [JavaFx Swing](https://mvnrepository.com/artifact/org.openjfx/javafx-swing) -kirjastoa, jonka avulla käyttöliittymäkuva voidaan muuntaa png-muotoon.
+Tässä sovelluksessa tallentaminen on myös toteutettu osana käyttöliittymää, sillä tallentaminen on toteutettu vain png-kuvana käyttöliittymänäkymästä. Siitä siis vastaa luokan emmakamutta.ui.Ui metodi ***saveAsImage(Scene)***. Sen sisässä tallennus on toteutettu käyttämällä javafx.stage oliota FileChooser ja ulkoista [JavaFx Swing](https://mvnrepository.com/artifact/org.openjfx/javafx-swing) -kirjastoa, jonka avulla käyttöliittymäkuva voidaan muuntaa png-muotoon.
 
 ## Sovelluslogiikka
 
