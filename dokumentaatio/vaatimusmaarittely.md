@@ -18,7 +18,7 @@ Tämä sovellus pyrkii kuvaamaan todellisten kangaspuiden toimintaa. Tässä on 
 Tämän lisäksi käyttöjärjestelmässä on erilaisia nappeja, joilla voi esimerkiksi purkaa viimeisimmän rivin tai tyhjentää kaikki, sekä omat napit uuden mallin luomiseen ja nykyisen tallentamiseen.
 
 ## Käyttäjät
-Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä.
+Sovelluksessa on vain yhdenlaisia, tavallisia käyttäjiä. Oletan kuitenkin, että pääasiallinen käyttäjäkunta olisi sovelluksen kohdeyleisöä ja siten perehtynyt kutomiseen ja kudontamallien lukemiseen. (Muutoin kts. kohta *Kangaspuiden toiminnasta*.)
 
 ## Toiminnallisuus
 ### Uuden mallin luominen
