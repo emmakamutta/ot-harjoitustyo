@@ -11,7 +11,7 @@ Nappi vie näkymään, jossa määritelläään käytettävät kangaspuut.
 
 ## Kangaspuiden määrittely
 Avautuvassa näkymässä määritellään kangaspuiden niisivarsien ja polkusten lukumäärä, sekä kankaan leveys ruutuina. 
-Liu'uttamalla säätimi voidaan valita niiden arvot. Jos muutoksia ei tehdä luodaan oletusarvoisesti nelivartiset puut neljillä polkusilla ja kankaan leveydeksi tulee 20 ruutua.
+Liu'uttamalla säätimiä voidaan valita niiden arvot. Jos muutoksia ei tehdä luodaan oletusarvoisesti nelivartiset puut neljillä polkusilla ja kankaan leveydeksi tulee 20 ruutua.
 
 ![maarittelynakyman kuva](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/maarittelynakyma.png)
 
