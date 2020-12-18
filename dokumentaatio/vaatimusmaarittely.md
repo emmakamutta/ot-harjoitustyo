@@ -9,7 +9,7 @@ Sitten käyttäjä voi painaa polkusia kuvaavia nappeja haluamassaan järjestyks
 Myös polkusten poljentajärjestys näytetään mallikuvan vieressä. Tallennettua kuvaa voi sitten käyttää ohjeena sidoksen tekemiseksi oikeita kangaspuita laitettaessa kudontavalmiiksi.
 
 ## Kangaspuiden toiminnasta
-Tämä sovellus pyrkii kuvaamaan todellisten kangaspuiden toimintaa. Tässä on yksinkertainen [selitys](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kangaspuiden_toiminnasta.md) aiheeseen.
+Tämä sovellus pyrkii kuvaamaan todellisten kangaspuiden toimintaa. Tässä on yksinkertainen [selitys](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kangaspuiden_toiminnasta.md) aiheesta ja sovelluksen muodostaman mallikuvan lukemisesta.
 
 
 ## Käyttöliittymäluonnos
