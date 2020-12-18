@@ -31,4 +31,5 @@
 |       | 1    | Testauksen päivittämistä  |
 |       | 1    | Vaatimusmäärittely päivitetty ajantasalle |
 |       | 0,5  | Testausdokumentti laadittu |
-| yht.  | 56   | | 
+|18.12. | 2,5  | Dokumentointia  |
+| yht.  | 58,5 | | 
