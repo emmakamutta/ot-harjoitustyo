@@ -15,13 +15,13 @@ Käyttöliittymä sisältää seuraavat näkymät
 * kangaspuiden määrittelynäkymä
 * kudontanäkymä
 
-Jokainen näistä on oma Scene-olionsa, joka sijoitetaan vuorollaan sovelluksen stageen. Kunkin Scenen luomisesta vastaa oma metodinsa, jotka kaikki sijaitsevat luokassa [emmakamutta.ui.Ui](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/main/java/emmakamutta/ui/Ui.java).
+Jokainen näistä on oma Scene-olionsa, joka sijoitetaan vuorollaan sovelluksen stageen. Kunkin Scenen luomisesta vastaa oma metodinsa, jotka kaikki sijaitsevat luokassa [emmakamutta.ui.Ui](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/main/java/emmakamutta/ui/Ui.java). Aloitusnäkymästä vastaa metodi ***createWelcomeScene()***, kangaspuiden määrittelynäkymän taas luo metodi ***createCustomizeScene()*** ja kudontanäkymän luo metodi ***createWeaveScene()***.
 
 Käyttöliittymä on pyritty eriyttämään sovelluslogiikasta. Se kutsuukin lähinnä sovelluslogiikan oliota [Loom](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/main/java/emmakamutta/domain/Loom.java) ja tämän metodeja sovelluslogiikan suorittamiseksi.
 
-Käyttöliittymän kudontanäkymä pohjautuu pitkälti neljään erilaiseen ruudukkoon ja useisiin nappeihin. Kunkin ruudukon toiminnasta vastaa oma luokkansa. Ne löytyvät pakkauksesta emmakamutta.ui. Jokainen näistä luokista perii valmiin JavaFX luokan GridPane, sillä sen päälle oli hyvä rakentaa ruudukoitten erityisempiä toiminnallisuuksia. 
+Käyttöliittymän kudontanäkymä pohjautuu pitkälti neljään erilaiseen ruudukkoon ja useisiin nappeihin. Kunkin ruudukon toiminnasta vastaa oma luokkansa. Ne löytyvät pakkauksesta emmakamutta.ui. Jokainen näistä luokista perii valmiin JavaFX luokan [GridPane](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/GridPane.html), sillä sen päälle oli hyvä rakentaa ruudukoitten erityisempiä toiminnallisuuksia. 
 
-Tässä sovelluksessa tallentaminen on myös toteutettu osana käyttöliittymää, sillä tallentaminen on toteutettu vain png-kuvana käyttöliittymänäkymästä. Siitä siis vastaa luokan emmakamutta.ui.Ui metodi ***saveAsImage(Scene)***. Sen sisässä tallennus on toteutettu käyttämällä javafx.stage oliota FileChooser ja ulkoista [JavaFx Swing](https://mvnrepository.com/artifact/org.openjfx/javafx-swing) -kirjastoa, jonka avulla käyttöliittymäkuva voidaan muuntaa png-muotoon.
+Tässä sovelluksessa tallentaminen on myös toteutettu osana käyttöliittymää, sillä tallentaminen on toteutettu vain png-kuvana käyttöliittymänäkymästä. Siitä siis vastaa luokan emmakamutta.ui.Ui metodi ***saveAsImage(Scene)***. Sen sisässä tallennus on toteutettu käyttämällä javafx.stage oliota [FileChooser](https://docs.oracle.com/javase/8/javafx/api/javafx/stage/FileChooser.html) ja ulkoista [JavaFx Swing](https://mvnrepository.com/artifact/org.openjfx/javafx-swing) -kirjastoa, jonka avulla käyttöliittymäkuva voidaan muuntaa png-muotoon.
 
 ## Sovelluslogiikka
 
@@ -33,8 +33,21 @@ Luokka [Loom](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudonta
 
 ## Päätoiminnallisuutta
 Seuraavat sekvenssikaaviot kuvaavat joitakin ohjelman päätoiminnallisuuksia.
+
+### Käyettävien kangaspuiden konfigurointi
+Seuraava sekvenssikaavio esittää sitä, kun käyttäjä määrittelee kangaspuut, joissa on 4 niisivartta, 4 polkusta ja kankaan leveys on 20, ja tämän jälkeen klikkaa nappia "Luo" kangaspuiden määrittelynäkymässä.
+
+![määrittelysekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/luontisekvenssi.png)
+
 ### Polkusten sidonnan määrittely
 Kun käyttäjä on klikkaillut polkusten sidonnan haluamakseen ja varmistaa sen painamalla "Lukitse sidonta" -nappia, tapahtuu seuraava.
 ![sekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/polkusten_varmistussekvenssi.png)
 
 Käyttöliittymän tapahtumakäsittelijä kutsuu luokan treadlesPane metodia ***setModifiable(false)***, joka lukitsee sidontaruudukon muutoksilta. Sen jälkeen se kutsuu saman luokan metodia ***convertToTreadles()*** (kuvassa toistaiseksi vielä kirjoitusvirhe) tämä metodi palauttaa uuden UniversalGrid-olion, joka vastaa visualisaatiota Grid muodossa. Tämä olio asetetaan sitten olion **loom** metodin ***setTreadles(Grid)*** sisälle, jolloin sovelluslogiikan luokan Loom olio loom siis asettaa tuon parametrin kangaspuiden polkusten sidonnaksi.
+
+Niisinnän määrittely toimii vastaavalla tavalla.
+
+### Kutominen
+Tämä sekvenssikaavio kuvaa sitä, kuinka polkusten sidonnan ja niisinnän määrittelyjen jälkeen painetaan ensimmäistä polkusta kuvaavaa nappia.
+
+![kudontasekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kutomissekvenssi.png)
