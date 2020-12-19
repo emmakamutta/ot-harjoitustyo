@@ -55,3 +55,7 @@ Tämä sekvenssikaavio kuvaa sitä, kuinka polkusten sidonnan ja niisinnän mä�
 ![kudontasekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kutomissekvenssi.png)
 
 Siis kun painetaan polkusnappia, Ui tarkistaa ensin oliomuuttujasta, ovatko kangaspuut kudontavalmiit (siis onko niisintä ja polkusten sidonta määritelty). Tämän jälkeen kutsutaan luokan **Loom** metodia ***weave(0)***, joka ensin tarkastaa onko kyseistä polusta edes olemassa, ja sitten onko sillä aiemmin kudottu. Tässä tapauksessa ei ole, joten polkusta painamalla syntymää kudottua riviä ei löydy valmiiksi hashMapista **weaveTreadles**. Siis **loom** kutsuu omaa metodiaan ***getWeavedRow(0)***, joka palauttaa tuon kyseisen rivin. Tämä sitten laiteaan hashMappiin seuraavan rivin kutomisen yksinkertaistamiseksi. Tämän jälkeen kudottava rivi haetaan HashMapista **weaveTreadles** ja merkitään kudottvaan kankaaseen kutsumalla olion **fabric** metodia ***weaveRow(int[])***. Myös poljettu polkunen laitetaan muistiin lisäämällä se poljentajärjestyksestä vastaavaan ArrayDequeen **treadOrder**. Kun rivin kutominen on näin suoritettu sovelluslogiikan puolella, antaa Ui sitten käskyn näyttää kutomisjälki kankaan visualisoimisesta vastaavalle oliolle **fabricPane**. Siis kutsutaan sen metodia ***visualizeFabric(Fabric)***, joka saa siis parametrina visualisoitavan kankaan. Tämän jälkeen vastaavasti visualisoidaan myös poljentajärjestys kutsumalla käyttöliittymän luokan **treadOrderPane** metodia ***visualize(0)***.
+
+### Viimeisimmän rivi purkaminen
+
+
