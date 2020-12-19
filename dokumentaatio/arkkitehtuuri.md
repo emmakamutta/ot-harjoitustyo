@@ -32,7 +32,7 @@ Sovelluslogiikka koostuu neljästä eri luokasta ja rajapinnasta [Grid](https://
 Luokka [Loom](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudontasovellus/src/main/java/emmakamutta/domain/Loom.java) hallinnoi pitkälti kangaspuiden toimintaa. Aivan kuten oikeissakin kangaspuissa itse puut sisältävät pienempiä osasia, jotka vaikuttavat niiden toimintaan. Siispä luokka Loom on sisältää oliomuuttujina muut sovelluslogiikan luokat. Loom myös vastaa kangaspuiden päätoiminnallisuudesta, eli kutomisesta, metodilla ***weave(int)***. Lisäksi Loom osaa myös purkaa kutomistaan metodilla ***undo()***. 
 
 ## Päätoiminnallisuutta
-Seuraavat sekvenssikaaviot kuvaavat joitakin ohjelman päätoiminnallisuuksia.
+Seuraavat sekvenssikaaviot kuvaavat joitakin ohjelman päätoiminnallisuuksia. Sekvenssikaavioista on jätetty joitakin metodien sisäisiä epäolennaisempia toimintoja merkitsemättä täysin tarkasti selkeyden vuoksi.
 
 ### Käyettävien kangaspuiden konfigurointi
 Seuraava sekvenssikaavio esittää sitä, kun käyttäjä määrittelee kangaspuut, joissa on 4 niisivartta, 4 polkusta ja kankaan leveys on 20, ja tämän jälkeen klikkaa nappia "Luo" kangaspuiden määrittelynäkymässä.
@@ -57,5 +57,19 @@ Tämä sekvenssikaavio kuvaa sitä, kuinka polkusten sidonnan ja niisinnän mä�
 Siis kun painetaan polkusnappia, Ui tarkistaa ensin oliomuuttujasta, ovatko kangaspuut kudontavalmiit (siis onko niisintä ja polkusten sidonta määritelty). Tämän jälkeen kutsutaan luokan **Loom** metodia ***weave(0)***, joka ensin tarkastaa onko kyseistä polusta edes olemassa, ja sitten onko sillä aiemmin kudottu. Tässä tapauksessa ei ole, joten polkusta painamalla syntymää kudottua riviä ei löydy valmiiksi hashMapista **weaveTreadles**. Siis **loom** kutsuu omaa metodiaan ***getWeavedRow(0)***, joka palauttaa tuon kyseisen rivin. Tämä sitten laiteaan hashMappiin seuraavan rivin kutomisen yksinkertaistamiseksi. Tämän jälkeen kudottava rivi haetaan HashMapista **weaveTreadles** ja merkitään kudottvaan kankaaseen kutsumalla olion **fabric** metodia ***weaveRow(int[])***. Myös poljettu polkunen laitetaan muistiin lisäämällä se poljentajärjestyksestä vastaavaan ArrayDequeen **treadOrder**. Kun rivin kutominen on näin suoritettu sovelluslogiikan puolella, antaa Ui sitten käskyn näyttää kutomisjälki kankaan visualisoimisesta vastaavalle oliolle **fabricPane**. Siis kutsutaan sen metodia ***visualizeFabric(Fabric)***, joka saa siis parametrina visualisoitavan kankaan. Tämän jälkeen vastaavasti visualisoidaan myös poljentajärjestys kutsumalla käyttöliittymän luokan **treadOrderPane** metodia ***visualize(0)***.
 
 ### Viimeisimmän rivi purkaminen
+Tämä sekvenssikaavio kuvaa sitä, kuinka viimeisin kudottu rivi puretaan painamalla "Peruuta"-nappia. Sekvenssissä oletetaan, että viiimeisin rivi oli 5. kudottu rivi. 
 
+![purkamissekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/purkamissekvenssi.png)
+
+Siis napin klikkaamisen jälkeen ui ensin tarkastaa käytettäviltä kangaspuilta, kuinka monta riviä on jo kudottu. Jos vielä ei olisi kudottu yhtäkään riviä, metodi ei tämän jälkeen tekisi mitään, sillä tyhjää on mahdoton purkaa. Tätä tarkistusta ei ole merkitty tarkasti kaavioon. Slen jälkeen Ui kutsuu oliota **loom** metodilla ***undo()***.
+Nyt **loom** puolestaan vielä tarkastaa, ettei vain polkusten polkemisjärjestys ole tyhjä, siis purettavan rivin olemassaolo tarkastetaan uudelleen. Tämän jälkeen **loom** kutsuu olion **fabric** metodia ***unWeave()***, joka poistaa kankaasta viimeisimmän rivin. Sen jälkeen **loom** poistaa myös viimeisimmän polkusen poljentajärjestyksen muistamisesta vastaavasta jonosta **treadOrder**. Tämän jälkeen purkaminen on suoritettu sovelluslogiikan osalta - siis Ui:n täytyy vielä visualisoida muutokset. Tämä käy siten, että Ui kutsuu jälleen kangasta visualisoivan luokan **fabricPane** metodia ***visualizeFabric(fabric)*** ja sen jälkeen poljentajärjestystä visualisoivan luokan **treadOrderPane** metodia ***clearLatestRow()***, joka tyhjentää poljentajärjestysruudukon viimeisimmän rivin. 
+
+
+## Ohjelmaan jääneet heikkoudet
+
+### Käyttöliittymä
+Käyttöliittymästä vastaavan luokan Ui metodit jäivät melko pitkiksi, joten niitä olisi varmaan voinut jakaa vielä pienemmiksi metodeiksi ja kentien jopa omiksi luokikseen. Lisäksi kudontanäkymän osasista vastaavat käyttöliittymäluokat sisältävät osittain samankaltaisia tai toiminnallisuudeltaan samoja metodeja, siis niille olisi voinut koodata vielä ainakin yhden yliluokan.
+
+### Tallentaminen
+Sovelluksen tallentaminen tuli toteutettua vain näyttökuvana kudontanäkymästä. Vaikka tämä on sovelluksen käyttötarvetta ajatellen riittävää, ohjelmaan olisi kenties sopinut vielä paremmin lisätallennusmuoto, jossa kudontamalleja pääsisi muokkaamaan ja tarkastelemaan uudestaan. Tällöin olisi ollut myös tarvetta kokonaan omalle pakkaukselle Dao, joka jäi nyt sovelluksesta puuttumaan, sillä nyt tallennus on toteutettu selkeyden vuoksi vain käyttölittymässä. Tämän lisäksi myös nykyistätallennusmuotoa olisi voinut parantaa siten, että ohjelma rajaisi tallennettavasta kuvasta pois sovelluksen napit, sillä ne eivät oikein tuo tallennettavalle kudontamallille lisäarvoa.
 
