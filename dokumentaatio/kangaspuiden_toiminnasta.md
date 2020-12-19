@@ -16,8 +16,9 @@ Itse kutominen toimii siis siten, että ensin jalalla painetaan jokin **polkusis
   Poljentajärjestyksen lisäksi kankaan sidokseen vaikuttaa myös **polkusten sidonta**, jonka avulla määritellään mitkä niisivarret nousevat ylös mitäkin polkusta painettaessa. Koska jokainen niisivarsi nousee itsenäisesti, voi yhdestä polkusesta nousta useampi niisivarsi.  Myös polkusten sidonnan voi merkitä ruudukkoon - ruudukon rivit ovat jälleen niisivarsia ja sarakkeet polkusia. Jos polkusessa on niisivarren kohdalla musta ruutu, se tarkoittaa, että se niisivarsi jää poljettaessa alas.
   
 **Siis vielä yksinkertaistettuna yhden kudotun rivin kuvio muodostuu seuraavasti:**
-1. polkunen painetaan, valkoiseksi merkityt niisivarret nousevat ylös, mustat jäävät alas
-2. kun kude pujotetaan, ylös nousseiden niisivarsien mustat ruudut jäävät näkyviin kankaan pintaan mustina.
+1. Jokin polkunen painetaan alas.
+2. Valkoiseksi merkityt niisivarret nousevat ylös, mustat jäävät alas.
+3. Kun kude pujotetaan, ylös nousseiden niisivarsien mustat ruudut jäävät näkyviin kankaan pintaan mustina.
 
 **Siis tietojenkäsittelijän näkökulmasta kutomisen voi rinnastaa XOR-bittioperaatioon. Jos jokaisen niisivarren niisntä olisi määritelty ruudukon rivin sijasta binäärinä, niin polkusten sidonta kertoo, että kun jotakin tiettyä polkusta painetaan, mistä niisintäbinääreistä otetaan XOR. Tulos on kudotun rivin ulkonäkö.**
 
