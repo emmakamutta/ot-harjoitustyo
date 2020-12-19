@@ -61,8 +61,11 @@ Tämä sekvenssikaavio kuvaa sitä, kuinka viimeisin kudottu rivi puretaan paina
 
 ![purkamissekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/purkamissekvenssi.png)
 
-Siis napin klikkaamisen jälkeen ui ensin tarkastaa käytettäviltä kangaspuilta, kuinka monta riviä on jo kudottu. Jos vielä ei olisi kudottu yhtäkään riviä, metodi ei tämän jälkeen tekisi mitään, sillä tyhjää on mahdoton purkaa. Tätä tarkistusta ei ole merkitty tarkasti kaavioon. Slen jälkeen Ui kutsuu oliota **loom** metodilla ***undo()***.
+Siis napin klikkaamisen jälkeen ui ensin tarkastaa käytettäviltä kangaspuilta, kuinka monta riviä on jo kudottu. Jos vielä ei olisi kudottu yhtäkään riviä, metodi ei tämän jälkeen tekisi mitään, sillä tyhjää on mahdoton purkaa. Tätä tarkistusta ei ole merkitty tarkasti kaavioon. Sen jälkeen Ui kutsuu oliota **loom** metodilla ***undo()***.
 Nyt **loom** puolestaan vielä tarkastaa, ettei vain polkusten polkemisjärjestys ole tyhjä, siis purettavan rivin olemassaolo tarkastetaan uudelleen. Tämän jälkeen **loom** kutsuu olion **fabric** metodia ***unWeave()***, joka poistaa kankaasta viimeisimmän rivin. Sen jälkeen **loom** poistaa myös viimeisimmän polkusen poljentajärjestyksen muistamisesta vastaavasta jonosta **treadOrder**. Tämän jälkeen purkaminen on suoritettu sovelluslogiikan osalta - siis Ui:n täytyy vielä visualisoida muutokset. Tämä käy siten, että Ui kutsuu jälleen kangasta visualisoivan luokan **fabricPane** metodia ***visualizeFabric(fabric)*** ja sen jälkeen poljentajärjestystä visualisoivan luokan **treadOrderPane** metodia ***clearLatestRow()***, joka tyhjentää poljentajärjestysruudukon viimeisimmän rivin. 
+
+### Muu toiminnallisuus
+Sovelluksen muu toiminnallisuus on toteutettu hyvin samankaltaisesti, kuin yllä mainitut. Kaikki sovellukset toiminnot siis käynnistyvät, kun käyttäjä painaa jotakin nappia. Tämä saa käyttöliittymän tekemään jotakin, ja yleensä jos toiminnallisuus vaatii jotakin sovelluslogiikalta, ui kutsuu ensin luokan Loom oliota, sillä Loom vastaa pääosin sovelluslogiikan ja käyttöliittymän keskustelusta. 
 
 
 ## Ohjelmaan jääneet heikkoudet
