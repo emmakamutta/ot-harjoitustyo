@@ -103,7 +103,7 @@ public class Ui extends Application {
             int buttonNmbr = Integer.parseInt(treadleButton.getText().substring(7)) - 1;
 
             treadleButton.setOnAction((event) -> {
-                if (readyToWeave) {
+                if (this.readyToWeave) {
 
                     this.loom.weave(buttonNmbr);
                     fabricPane.visualizeFabric(this.loom.fabric);
