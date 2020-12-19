@@ -34,7 +34,7 @@ Luokka [Loom](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/kudonta
 ## Päätoiminnallisuutta
 Seuraavat sekvenssikaaviot kuvaavat joitakin ohjelman päätoiminnallisuuksia. Sekvenssikaavioista on jätetty joitakin metodien sisäisiä epäolennaisempia toimintoja merkitsemättä täysin tarkasti selkeyden vuoksi.
 
-### Käyettävien kangaspuiden konfigurointi
+### Käytettävien kangaspuiden konfigurointi
 Seuraava sekvenssikaavio esittää sitä, kun käyttäjä määrittelee kangaspuut, joissa on 4 niisivartta, 4 polkusta ja kankaan leveys on 20, ja tämän jälkeen klikkaa nappia "Luo" kangaspuiden määrittelynäkymässä.
 
 ![määrittelysekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/luontisekvenssi.png)
