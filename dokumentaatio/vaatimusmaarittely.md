@@ -2,14 +2,14 @@
 
 ## Sovelluksen tarkoitus
 Sovelluksen avulla käyttäjä voi suunnitella erilaisia kudontamalleja ja simuloida kudontaa kangaspuilla suunnitelemalla sidoksellaan. 
-Mallein voi sitten tallentaa kuvana omalle tietokoneelle.
+Mallin voi sitten tallentaa kuvana omalle tietokoneelle.
 Sovellus simuloi kangaspuita, joiden polkusten ja niisivarsien määrät käyttäjä voi itse valita. 
 Malleja suunnitellaan määrittelemällä ensin polkusten sidonta omaan ruudukkoonsa ja niisintä omaan ruudukkoonsa.
 Sitten käyttäjä voi painaa polkusia kuvaavia nappeja haluamassaan järjestyksessä, jolloin annettuun ruudukkoon tulee mallikuva siitä, millaista pintaa kutoessa tulisi. 
 Myös polkusten poljentajärjestys näytetään mallikuvan vieressä. Tallennettua kuvaa voi sitten käyttää ohjeena sidoksen tekemiseksi oikeita kangaspuita laitettaessa kudontavalmiiksi.
 
 ## Kangaspuiden toiminnasta
-Tämä sovellus pyrkii kuvaamaan todellisten kangaspuiden toimintaa. Tässä on yksinkertainen [selitys](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kangaspuiden_toiminnasta.md) aiheesta ja sovelluksen muodostaman mallikuvan lukemisesta.
+Tämä sovellus pyrkii kuvaamaan todellisten kangaspuiden toimintaa. Tässä on kirjoittamani yksinkertainen [selitys](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kangaspuiden_toiminnasta.md) aiheesta ja sovelluksen muodostaman mallikuvan lukemisesta.
 
 
 ## Käyttöliittymäluonnos
