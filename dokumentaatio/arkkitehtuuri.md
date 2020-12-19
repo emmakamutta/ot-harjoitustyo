@@ -39,11 +39,13 @@ Seuraava sekvenssikaavio esittää sitä, kun käyttäjä määrittelee kangaspu
 
 ![määrittelysekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/luontisekvenssi.png)
 
+Napin painaminen siis aiheuttaa sen, että Ui hakee kunkin määriteltävän arvon niitä vastaavista liu'uttimista. Sitten se luo uuden Loom-olion näiden arvojen pohjalta. Tämän jälkeen Ui kutsuu omaa metodiaan ***createWeaveScene()***, joka luo konfiguroiduille kangaspuille sopivan kudontanäkymän, ja asettaa sen näkyviin.
+
 ### Polkusten sidonnan määrittely
 Kun käyttäjä on klikkaillut polkusten sidonnan haluamakseen ja varmistaa sen painamalla "Lukitse sidonta" -nappia, tapahtuu seuraava.
 ![sekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/polkusten_varmistussekvenssi.png)
 
-Käyttöliittymän tapahtumakäsittelijä kutsuu luokan treadlesPane metodia ***setModifiable(false)***, joka lukitsee sidontaruudukon muutoksilta. Sen jälkeen se kutsuu saman luokan metodia ***convertToTreadles()*** (kuvassa toistaiseksi vielä kirjoitusvirhe) tämä metodi palauttaa uuden UniversalGrid-olion, joka vastaa visualisaatiota Grid muodossa. Tämä olio asetetaan sitten olion **loom** metodin ***setTreadles(Grid)*** sisälle, jolloin sovelluslogiikan luokan Loom olio loom siis asettaa tuon parametrin kangaspuiden polkusten sidonnaksi.
+Käyttöliittymän tapahtumakäsittelijä kutsuu luokan treadlesPane metodia ***setModifiable(false)***, joka lukitsee sidontaruudukon muutoksilta. Sen jälkeen se kutsuu saman luokan metodia ***convertToTreadles()*** (kuvassa toistaiseksi vielä kirjoitusvirhe) tämä metodi palauttaa uuden UniversalGrid-olion, joka vastaa visualisaatiota Grid muodossa. Tämä olio asetetaan sitten olion **loom** metodin ***setTreadles(Grid)*** sisälle, jolloin sovelluslogiikan luokan Loom olio loom siis asettaa tuon parametrin kangaspuiden polkusten sidonnaksi tarkastettuuaan ensin, että se on kangaspuihin sopiva. Tämän jälkeen kutsutaan olion **treadlesPane** metodia ***setLockedColors()***, joka vaihtaa sovelluksen näkymässä polkusten sidontaruudukon mustat ruudut tummanharmaiksi lukitsemisen merkiksi.
 
 Niisinnän määrittely toimii vastaavalla tavalla.
 
@@ -51,3 +53,5 @@ Niisinnän määrittely toimii vastaavalla tavalla.
 Tämä sekvenssikaavio kuvaa sitä, kuinka polkusten sidonnan ja niisinnän määrittelyjen jälkeen painetaan ensimmäistä polkusta kuvaavaa nappia.
 
 ![kudontasekvenssi](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kutomissekvenssi.png)
+
+Siis kun painetaan polkusnappia, Ui tarkistaa ensin oliomuuttujasta, ovatko kangaspuut kudontavalmiit (siis onko niisintä ja polkusten sidonta määritelty). Tämän jälkeen kutsutaan luokan **Loom** metodia ***weave(0)***, joka ensin tarkastaa onko kyseistä polusta edes olemassa, ja sitten onko sillä aiemmin kudottu. Tässä tapauksessa ei ole, joten polkusta painamalla syntymää kudottua riviä ei löydy valmiiksi hashMapista **weaveTreadles**. Siis **loom** kutsuu omaa metodiaan ***getWeavedRow(0)***, joka palauttaa tuon kyseisen rivin. Tämä sitten laiteaan hashMappiin seuraavan rivin kutomisen yksinkertaistamiseksi. Tämän jälkeen kudottava rivi haetaan HashMapista **weaveTreadles** ja merkitään kudottvaan kankaaseen kutsumalla olion **fabric** metodia ***weaveRow(int[])***. Myös poljettu polkunen laitetaan muistiin lisäämällä se poljentajärjestyksestä vastaavaan ArrayDequeen **treadOrder**. Kun rivin kutominen on näin suoritettu sovelluslogiikan puolella, antaa Ui sitten käskyn näyttää kutomisjälki kankaan visualisoimisesta vastaavalle oliolle **fabricPane**. Siis kutsutaan sen metodia ***visualizeFabric(Fabric)***, joka saa siis parametrina visualisoitavan kankaan. Tämän jälkeen vastaavasti visualisoidaan myös poljentajärjestys kutsumalla käyttöliittymän luokan **treadOrderPane** metodia ***visualize(0)***.
