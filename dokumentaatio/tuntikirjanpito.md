@@ -33,4 +33,5 @@
 |       | 0,5  | Testausdokumentti laadittu |
 |18.12. | 2,5  | Dokumentointia  |
 |19.12. | 2,5  | Dokumentoinnin viimeistely |
-| yht.  | 61 | | 
+|       | 0,5  | Oikolukua ja kaikki saatettu palautusvalmiiksi |
+| yht.  | 61,5 | | 
