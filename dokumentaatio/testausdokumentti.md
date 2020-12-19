@@ -11,7 +11,7 @@ Koska luokka [*Loom*](https://github.com/emmakamutta/ot-harjoitustyo/blob/master
 
 ![testikattavuskuva](https://github.com/emmakamutta/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/testikattavuuskuva.png)
 
-Testauksen rivikattavuus on 100% ja haaraumakattavuus 92%. Haaraumakattavuudesta jäi testaamatta tapaukset, joissa luokan *Loom* metodeja *setHeddles* ja *setTreadles* kutsuttaisiin väärän kokoisilla ruudukoilla. 
+Testauksen rivikattavuus on 100% ja haaraumakattavuus 92%. Haaraumakattavuudesta jäi testaamatta tapaukset, joissa luokan *Loom* metodeja *setHeddles* ja *setTreadles* kutsuttaisiin väärän kokoisilla ruudukoilla. Tälläistä tapausta ei kuitenkaan pitäisi käydä, sillä käyttöliittymä ei anna siihen mahdollisuutta. 
 
 Käyttöliittymää ei ole otettu mukaan testikattavussraporttiin.
 
